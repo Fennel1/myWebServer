@@ -3,6 +3,7 @@
 
 #include <sys/socket.h>
 #include <fstream>
+#include <sys/mman.h>
 #include <map>
 
 #include "../lock/locker.h"
@@ -76,7 +77,7 @@ private:
     LINE_STATUS parse_line();
     void unmap();
     bool add_response(const char *format, ...);
-    bool add_content(consr char *content);
+    bool add_content(const char *content);
     bool add_status_line(int status, const char *title);
     bool add_headers(int content_len);
     bool add_content_type();

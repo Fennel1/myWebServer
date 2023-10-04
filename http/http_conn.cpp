@@ -10,7 +10,7 @@ const char *error_404_form = "The requested file was not found on this server.\n
 const char *error_500_title = "Internal Error";
 const char *error_500_form = "There was an unusual problem serving the request file.\n";
 
-locker lock;
+locker lock_;
 
 //对文件描述符设置非阻塞
 int setnonblocking(int fd){
@@ -311,4 +311,306 @@ http_conn::HTTP_CODE http_conn::process_read(){
         }
     }
     return NO_REQUEST;
+}
+
+http_conn::HTTP_CODE http_conn::do_request(){
+    strcpy(real_file_, doc_root);
+    int len = strlen(doc_root);
+    const char *p = strrchr(url_, '/');
+
+    //处理cgi
+    if (cgi == 1 && (*(p+1) == '2' || *(p+1) == '3')){
+        char flag = url_[1];
+        char *url_real = (char *)malloc(sizeof(char)*200);
+        strcpy(url_real, "/");
+        strcat(url_real, url_+2);
+        strncpy(real_file_+len, url_real, FILENAME_LEN-len+1);
+        free(url_real);
+
+        //将用户名和密码提取出来
+        char name[100], password[100];
+        int i, j;
+        for (i=5; string_[i]!='&'; i++){
+            name[i-5] = string_[i];
+        }
+        name[i-5] = '\0';
+        for (i=i+10, j=0; string_[i]!='\0'; i++, j++){
+            password[j] = string_[i];
+        }
+        name[j] = '\0';
+
+        if (*(p+1) == '3'){
+            //如果是注册，先检测数据库中是否有重名的
+            //没有重名的，进行增加数据
+            char *sql_insert = (char *)malloc(sizeof(char) * 200);
+            strcpy(sql_insert, "INSERT INTO user(username, passwd) VALUES(");
+            strcat(sql_insert, "'");
+            strcat(sql_insert, name);
+            strcat(sql_insert, "', '");
+            strcat(sql_insert, password);
+            strcat(sql_insert, "')");
+
+            if (users_.find(name) == users_.end()){
+                lock_.lock();
+                int res = mysql_query(mysql_, sql_insert);
+                users_.insert(pair<std::string, std::string>(name, password));
+                lock_.unlock();
+
+                if (!res) {
+                    strcpy(m_url, "/log.html");
+                }
+                else {
+                    strcpy(m_url, "/registerError.html");
+                }
+            }
+            else {
+                strcpy(m_url, "/registerError.html");
+            }
+        }
+        else{
+            //如果是登录，直接判断
+            //若浏览器端输入的用户名和密码在表中可以查找到，返回1，否则返回0
+            if (users_.find(name) != users_.end() && users_[name] == password){
+                strcpy(url_, "/welcome.html");
+            }
+            else{
+                strcpy(m_url, "/logError.html");
+            }
+        }
+
+        if(*(p+1) == '0'){
+            char *url_real = (char *)malloc(sizeof(char) * 200);
+            strcpy(url_real, "/register.html");
+            strncpy(real_file_ + len, url_real, strlen(url_real));
+            free(url_real);
+        }
+        else if (*(p+1) == '1'){
+            char *url_real = (char *)malloc(sizeof(char) * 200);
+            strcpy(url_real, "/log.html");
+            strncpy(real_file_ + len, url_real, strlen(url_real));
+            free(url_real);
+        }
+        else if (*(p+1) == '5'){
+            char *url_real = (char *)malloc(sizeof(char) * 200);
+            strcpy(url_real, "/picture.html");
+            strncpy(real_file_ + len, url_real, strlen(url_real));
+            free(url_real);
+        }
+        else if (*(p+1) == '6'){
+            char *url_real = (char *)malloc(sizeof(char) * 200);
+            strcpy(url_real, "/video.html");
+            strncpy(real_file_ + len, url_real, strlen(url_real));
+            free(url_real);
+        }
+        else{
+            strncpy(real_file_+len, url_, FILENAME_LEN-len-1);
+        }
+
+        if (stat(real_file_, &file_stat_) < 0){
+            return NO_REQUEST;
+        }
+        if (!(file_stat_.st_mode & S_IROTH)){
+            return FORBIDDEN_REQUEST;
+        }
+        if (S_ISDIR(file_stat_.st_mode)){
+            return BAD_REQUEST;
+        }
+
+        int fd = open(real_file_, O_RDONLY);
+        file_address_ = (char *)mmap(0, file_stat_.st_size, PROT_READ, MAP_PRIVATE, fd, 0);
+        close(fd);
+        return FILE_REQUEST;
+    }
+}
+
+void http_conn::unmap(){
+    if (file_address_){
+        munmap(file_address_, file_stat_.st_size);
+        file_address_ = 0;
+    }
+}
+
+bool http_conn::write(){
+    if (bytes_to_send_ == 0){
+        modfd(epollfd_, socketfd_, EPOLLIN, et_);
+        init();
+        return true;
+    }
+
+    int tmp = 0;
+    while(true){
+        tmp = writev(socketfd_, iv_, iv_count_);
+        if (tmp < 0){
+            if (errno == EAGAIN){
+                modfd(epollfd_, socketfd_, EPOLLOUT, et_);
+                return true;
+            }
+            unmap();
+            return false;
+        }
+
+        bytes_have_send_ += tmp;
+        bytes_to_send_ -= tmp;
+        if (bytes_have_send_ >= iv_[0].iov_len){
+            iv_[0].iov_len = 0;
+            iv_[1].iov_base = file_address_ + (bytes_have_send_-write_idx_);
+            iv_[1].iov_len = bytes_to_send_
+        }
+        else{
+            iv_[0].iov_base = write_buf_+bytes_have_send_;
+            iv_[0].iov_len = iv_[0].iov_len - bytes_have_send_;
+        }
+
+        if (bytes_to_send_ <= 0){
+            unmap();
+            modfd(epollfd_, socketfd_, EPOLLIN, et_);
+            if (linger_){
+                init();
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+    }
+}
+
+bool http_conn::add_response(const char *format, ...){
+    if (write_idx_ >= WRITE_BUFFER_SIZE){
+        return false;
+    }
+
+    va_list arg_list;
+    va_start(arg_list, format);
+    int len = vsnprintf(write_buf_+write_idx_, WRITE_BUFFER_SIZE-1-write_idx_, format, arg_list);
+    if (len >= WRITE_BUFFER_SIZE-1-write_idx_){
+        va_end(arg_list);
+        return false;
+    }
+    write_idx_ += len;
+    va_end(arg_list);
+
+    return true;
+}
+
+bool http_conn::add_status_line(int status, const char *title){
+    return add_response("%s %d %s\r\n", "HTTP/1.1", status, title);
+}
+
+bool http_conn::add_headers(int content_len){
+    return add_content_length(content_len) && add_linger() && add_blank_line();
+}
+
+bool http_conn::add_content_len(int content_len){
+    return add_response("Content-Length:%d\r\n", content_len);
+}
+
+bool http_conn::add_content_type(){
+    return add_response("Content-Type:%s\r\n", "text/html");
+}
+
+bool http_conn::add_linger(){
+    return add_response("Connection:%s\r\n", (linger_ == true) ? "keep-alive" : "close");
+}
+
+bool http_conn::add_blank_line(){
+    return add_response("%s", "\r\n");
+}
+
+bool http_conn::add_content(const char *content){
+    return add_response("%s", content);
+}
+
+bool http_conn::process_write(HTTP_CODE ret){
+    switch (ret){
+        case INTERNAL_ERROR:
+            add_status_line(500, error_500_title);
+            add_headers(strlen(error_500_form));
+            if (!add_content(error_500_form)){
+                return false;
+            }
+            break;
+        case BAD_REQUEST:
+            add_status_line(404, error_404_title);
+            add_headers(strlen(error_404_form));
+            if (!add_content(error_404_form)){
+                return false;
+            }
+            break;
+        case FORBIDDEN_REQUEST:
+            add_status_line(403, error_403_title);
+            add_headers(strlen(error_403_form));
+            if (!add_content(error_403_form)){
+                return false;
+            }
+            break;
+        case FILE_REQUEST:
+            add_status_line(200, ok_200_title);
+            if (file_stat_.st_size != 0){
+                add_headers(m_file_stat.st_size);
+                m_iv[0].iov_base = write_buf_;
+                m_iv[0].iov_len = write_idx_;
+                m_iv[1].iov_base = file_address_;
+                m_iv[1].iov_len = m_file_stat.st_size;
+                iv_count_ = 2;
+                bytes_to_send_ = write_idx_ + file_stat_.st_size;
+                return true;
+            }
+            else{
+                const char *ok_string = "<html><body></body></html>";
+                add_headers(strlen(ok_string));
+                if (!add_content(ok_string)){
+                    return false;
+                }
+            }
+        default:
+            return false;
+    }
+
+    iv_[0].iov_base = write_buf_;
+    iv_[0].iov_len = write_idx_;
+    iv_count_ = 1;
+    bytes_to_send_ = write_idx_;
+    return true;
+}
+
+void http_conn::process(){
+    HTTP_CODE read_ret = process_read();
+    if (read_ret == NO_REQUEST){
+        modfd(epollfd_, socketfd_, EPOLLIN, et_);
+        return;
+    }
+    bool write_ret = process_write(read_ret);
+    if (!write_ret){
+        close_conn();
+    }
+    modfd(epollfd_, socketfd_, EPOLLOUT, et_);
+}
+
+void http_conn::initmysql_result(connection_pool *connpool){
+    //先从连接池中取一个连接
+    MYSQL *mysql = nullptr;
+    connectionRAII mysqlcon(&mysql, connpool);
+    
+    //在user表中检索username，passwd数据，浏览器端输入
+    if (mysql_query(mysql, "SELECT username,passwd FROM user")){
+        // LOG_ERROR("SELECT error:%s\n", mysql_error(mysql));
+    }
+
+    //从表中检索完整的结果集
+    MYSQL_RES *result = mysql_store_result(mysql);
+
+    //返回结果集中的列数
+    int num_fields = mysql_num_fields(result);
+
+    //返回所有字段结构的数组
+    MYSQL_FIELD *fields = mysql_fetch_fields(result);
+
+    //从结果集中获取下一行，将对应的用户名和密码，存入map中
+    while (MYSQL_ROW row = mysql_fetch_row(result))
+    {
+        string temp1(row[0]);
+        string temp2(row[1]);
+        users[temp1] = temp2;
+    }
 }
