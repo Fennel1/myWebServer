@@ -174,6 +174,12 @@ void Utils::timer_handler()
     alarm(timeslot_);
 }
 
+void Utils::show_error(int connfd, const char *info)
+{
+    send(connfd, info, strlen(info), 0);
+    close(connfd);
+}
+
 int *Utils::pipefd_ = 0;
 int Utils::epollfd_ = 0;
 

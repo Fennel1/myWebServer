@@ -9,6 +9,7 @@
 #include "../lock/locker.h"
 #include "../mysql/mysql_connection_pool.h"
 #include "../timer/lst_timer.h"
+#include "../log/log.h"
 
 class http_conn{
 public:

@@ -59,6 +59,7 @@ public:
     static void sig_handler(int sig);
     void addsig(int sig, void(sig_handler)(int), bool reset=true);
     void timer_handler();
+    void show_error(int connfd, const char *info);
     
     static int *pipefd_;
     static int epollfd_;

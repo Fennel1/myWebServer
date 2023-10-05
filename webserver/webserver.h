@@ -36,20 +36,20 @@ public:
     int close_log_;
     int actorModel_;
 
-    int pipefd[2];
+    int pipefd_[2];
     int epollfd_;
-    http_conn *users;
+    http_conn *users_;
 
     connection_pool *connPool_;
     std::string user_;
-    std::string passwrod_;
+    std::string password_;
     std::string databaseName_;
     int sqlNUm_;
 
     threadpool<http_conn> pool_;
     int threadNum_;
 
-    epoll_event events[MAX_EVENT_NUMBER];
+    epoll_event events_[MAX_EVENT_NUMBER];
 
     int listenfd_;
     int linger_;
@@ -57,8 +57,8 @@ public:
     int listenfdMode_;
     int connfdMode_;
 
-    client_data *users_timer;
-    Utils utils;
+    client_data *users_timer_;
+    Utils utils_;
 };
 
 #endif
