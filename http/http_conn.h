@@ -5,6 +5,9 @@
 #include <fstream>
 #include <sys/mman.h>
 #include <map>
+#include <sys/uio.h>
+#include <sys/types.h>
+#include <sys/stat.h>
 
 #include "../lock/locker.h"
 #include "../mysql/mysql_connection_pool.h"
@@ -51,12 +54,12 @@ public:
     http_conn() {}
     ~http_conn() {}
 
-    void init(int socketfd, const sockaddr_in &addr, char *root, int TRIGMode, int close_log, string user, string passwd, string sqlname);
+    void init(int socketfd, const sockaddr_in &addr, char *root, int TRIGMode, int close_log, std::string user, std::string passwd, std::string sqlname);
     void close_conn(bool real_close=true);
     void process();
     bool read_once();
     bool write();
-    sockaddr_in *get_address()  {return &address_};
+    sockaddr_in *get_address()  {return &address_;};
     void initmysql_result(connection_pool *connpool);
 
     int timer_flag_;
@@ -65,6 +68,7 @@ public:
     static int user_count_;
     MYSQL *mysql_;
     int state_;     //read-0    write-1
+    locker lock_;
 
 private:
     void init();

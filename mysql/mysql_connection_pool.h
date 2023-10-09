@@ -14,7 +14,7 @@ public:
     void DestroyPool();
 
     static connection_pool *GetInstance();
-    void init(string url, string User, string PassWord, string DataBaseName, int Port, int MaxConn, bool close_log);
+    void init(std::string url, std::string User, std::string PassWord, std::string DataBaseName, int Port, int MaxConn, bool close_log);
 
 private:
     connection_pool();
@@ -33,7 +33,7 @@ public:
     std::string password_;
     std::string database_name_;
     bool close_log_;
-}
+};
 
 
 class connectionRAII{

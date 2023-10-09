@@ -16,8 +16,8 @@ WebServer::WebServer(){
 WebServer::~WebServer(){
     close(epollfd_);
     close(listenfd_);
-    close(pipefd[0]);
-    close(pipefd[1]);
+    close(pipefd_[0]);
+    close(pipefd_[1]);
     delete [] users_;
     delete [] users_timer_;
     delete pool_;
@@ -40,19 +40,19 @@ void WebServer::init(int port , std::string user, std::string passWord, std::str
 }
 
 void WebServer::et(){
-    if (et == 0){
+    if (et_ == 0){
         listenfd_ = 0;
         connfdMode_ = 0;
     }
-    else if (et == 1){
+    else if (et_ == 1){
         listenfd_ = 0;
         connfdMode_ = 1;
     }
-    else if (et == 2){
+    else if (et_ == 2){
         listenfd_ = 1;
         connfdMode_ = 0;
     }
-    else if (et == 3){
+    else if (et_ == 3){
         listenfd_ = 1;
         connfdMode_ = 1;
     }
@@ -60,7 +60,7 @@ void WebServer::et(){
 
 void WebServer::log_write(){
     if (close_log_ == 0){
-        if (log_write == 1){
+        if (log_write_ == 1){
             log::get_instance()->init("./ServerLog", close_log_, 2000, 800000, 800);
         }
         else{
@@ -76,7 +76,7 @@ void WebServer::sql_pool(){
 }
 
 void WebServer::thread_pool(){
-    pool_ = new threadpool<http_conn>(actorModel_, connPool_, threadNum_);
+    pool_ = new threadpool<http_conn>(connPool_, actorModel_, threadNum_);
 }
 
 void WebServer::eventListen(){
@@ -100,7 +100,7 @@ void WebServer::eventListen(){
 
     int ret = 0, flag = 1;
     setsockopt(listenfd_, SOL_SOCKET, SO_REUSEADDR, &flag, sizeof(flag));
-    ret = bind(listenfd_, (struct socketaddr *)&address, sizeof(address));
+    ret = bind(listenfd_, (struct sockaddr *)&address, sizeof(address));
     assert(ret >= 0);
     ret = listen(listenfd_, 5);
     assert(ret >= 0);
@@ -116,12 +116,12 @@ void WebServer::eventListen(){
 
     ret = socketpair(PF_UNIX, SOCK_STREAM, 0, pipefd_);
     assert(ret != -1);
-    utils.setnonblocking(pipefd_[1]);
+    utils_.setnonblocking(pipefd_[1]);
     utils_.addfd(epollfd_, pipefd_[0], false, 0);
 
-    utils.addsig(SIGPIPE, SIG_IGN);
-    utils.addsig(SIGALRM, utils_.sig_handler, false);
-    utils.addsig(SIGTERM, utils_.sig_handler, false);
+    utils_.addsig(SIGPIPE, SIG_IGN);
+    utils_.addsig(SIGALRM, utils_.sig_handler, false);
+    utils_.addsig(SIGTERM, utils_.sig_handler, false);
 
     alarm(TIMESLOT);
 
@@ -164,10 +164,10 @@ void WebServer::deal_timer(util_timer *timer, int socketfd){
 }
 
 bool WebServer::dealclientdata(){
-    struct sockaddre_in client_address;
+    struct sockaddr_in client_address;
     socklen_t client_addrlength = sizeof(client_address);
     if (listenfdMode_ == 0){
-        int connfd = accept(listenfd_, , (struct sockaddr *)&client_address, &client_addrlength);
+        int connfd = accept(listenfd_, (struct sockaddr *)&client_address, &client_addrlength);
         if (connfd < 0){
             LOG_ERROR("%s:errno is:%d", "accept error", errno);
             return false;

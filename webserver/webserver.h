@@ -1,6 +1,8 @@
 #ifndef WEBSERVER_H
 #define WEBSERVER_H
 
+#include <arpa/inet.h>
+
 #include "../threadpool/threadpool.h"
 #include "../http/http_conn.h"
 
@@ -13,7 +15,7 @@ public:
     WebServer();
     ~WebServer();
 
-    void init(int port , string user, string passWord, string databaseName,
+    void init(int port , std::string user, std::string passWord, std::string databaseName,
               int log_write , int linger, int et, int sql_num,
               int thread_num, int close_log, int actor_model);
     void thread_pool();
@@ -46,7 +48,7 @@ public:
     std::string databaseName_;
     int sqlNUm_;
 
-    threadpool<http_conn> pool_;
+    threadpool<http_conn> *pool_;
     int threadNum_;
 
     epoll_event events_[MAX_EVENT_NUMBER];

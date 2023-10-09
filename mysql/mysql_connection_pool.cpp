@@ -15,12 +15,12 @@ connection_pool *connection_pool::GetInstance()
 	return &connPool;
 }
 
-void connection_pool::init(string url, string User, string PassWord, string DataBaseName, int Port, int MaxConn, bool close_log){
+void connection_pool::init(std::string url, std::string user, std::string password, std::string database_name, int port, int MaxConn, bool close_log){
     url_ = url;
-    port_ = Port;
-    user_ = User;
-    password_ = PassWord;
-    database_name_ = DataBaseName;
+    port_ = port;
+    user_ = user;
+    password_ = password;
+    database_name_ = database_name;
     close_log_ = close_log;
 
     for (int i=0; i<MaxConn; i++){

@@ -10,8 +10,6 @@ const char *error_404_form = "The requested file was not found on this server.\n
 const char *error_500_title = "Internal Error";
 const char *error_500_form = "There was an unusual problem serving the request file.\n";
 
-locker lock_;
-
 //对文件描述符设置非阻塞
 int setnonblocking(int fd){
     int old_option = fcntl(fd, F_GETFL);
@@ -88,7 +86,7 @@ void http_conn::init(){
 }
 
 void http_conn::init(int socketfd, const sockaddr_in &addr, char *root, int et,
-                     int close_log, string user, string passwd, string sqlname){
+                     int close_log, std::string user, std::string passwd, std::string sqlname){
     socketfd_ = socketfd;
     address_ = addr;
 
@@ -155,7 +153,7 @@ bool http_conn::read_once(){
     }
 
     int bytes_read = 0;
-    if (et == 1){
+    if (et_ == 1){
         while(true){
             bytes_read = recv(socketfd_, read_buf_+read_idx_, READ_BUFFER_SIZE-read_idx_, 0);
             if (bytes_read == -1){
@@ -172,11 +170,11 @@ bool http_conn::read_once(){
         return true;
     }
     else{
-        bytes_read = recv(m_sockfd, m_read_buf + m_read_idx, READ_BUFFER_SIZE - m_read_idx, 0);
+        bytes_read = recv(socketfd_, read_buf_ + read_idx_, READ_BUFFER_SIZE - read_idx_, 0);
         if (bytes_read <= 0){
             return false;
         }
-        m_read_idx += bytes_read;
+        read_idx_ += bytes_read;
         return true;
     }
 }
@@ -319,7 +317,7 @@ http_conn::HTTP_CODE http_conn::do_request(){
     const char *p = strrchr(url_, '/');
 
     //处理cgi
-    if (cgi == 1 && (*(p+1) == '2' || *(p+1) == '3')){
+    if (cgi_ == 1 && (*(p+1) == '2' || *(p+1) == '3')){
         char flag = url_[1];
         char *url_real = (char *)malloc(sizeof(char)*200);
         strcpy(url_real, "/");
@@ -353,18 +351,18 @@ http_conn::HTTP_CODE http_conn::do_request(){
             if (users_.find(name) == users_.end()){
                 lock_.lock();
                 int res = mysql_query(mysql_, sql_insert);
-                users_.insert(pair<std::string, std::string>(name, password));
+                users_.insert(std::pair<std::string, std::string>(name, password));
                 lock_.unlock();
 
                 if (!res) {
-                    strcpy(m_url, "/log.html");
+                    strcpy(url_, "/log.html");
                 }
                 else {
-                    strcpy(m_url, "/registerError.html");
+                    strcpy(url_, "/registerError.html");
                 }
             }
             else {
-                strcpy(m_url, "/registerError.html");
+                strcpy(url_, "/registerError.html");
             }
         }
         else{
@@ -374,7 +372,7 @@ http_conn::HTTP_CODE http_conn::do_request(){
                 strcpy(url_, "/welcome.html");
             }
             else{
-                strcpy(m_url, "/logError.html");
+                strcpy(url_, "/logError.html");
             }
         }
 
@@ -454,7 +452,7 @@ bool http_conn::write(){
         if (bytes_have_send_ >= iv_[0].iov_len){
             iv_[0].iov_len = 0;
             iv_[1].iov_base = file_address_ + (bytes_have_send_-write_idx_);
-            iv_[1].iov_len = bytes_to_send_
+            iv_[1].iov_len = bytes_to_send_;
         }
         else{
             iv_[0].iov_base = write_buf_+bytes_have_send_;
@@ -498,7 +496,7 @@ bool http_conn::add_status_line(int status, const char *title){
 }
 
 bool http_conn::add_headers(int content_len){
-    return add_content_length(content_len) && add_linger() && add_blank_line();
+    return add_content_len(content_len) && add_linger() && add_blank_line();
 }
 
 bool http_conn::add_content_len(int content_len){
@@ -547,11 +545,11 @@ bool http_conn::process_write(HTTP_CODE ret){
         case FILE_REQUEST:
             add_status_line(200, ok_200_title);
             if (file_stat_.st_size != 0){
-                add_headers(m_file_stat.st_size);
-                m_iv[0].iov_base = write_buf_;
-                m_iv[0].iov_len = write_idx_;
-                m_iv[1].iov_base = file_address_;
-                m_iv[1].iov_len = m_file_stat.st_size;
+                add_headers(file_stat_.st_size);
+                iv_[0].iov_base = write_buf_;
+                iv_[0].iov_len = write_idx_;
+                iv_[1].iov_base = file_address_;
+                iv_[1].iov_len = file_stat_.st_size;
                 iv_count_ = 2;
                 bytes_to_send_ = write_idx_ + file_stat_.st_size;
                 return true;
@@ -609,8 +607,8 @@ void http_conn::initmysql_result(connection_pool *connpool){
     //从结果集中获取下一行，将对应的用户名和密码，存入map中
     while (MYSQL_ROW row = mysql_fetch_row(result))
     {
-        string temp1(row[0]);
-        string temp2(row[1]);
-        users[temp1] = temp2;
+        std::string temp1(row[0]);
+        std::string temp2(row[1]);
+        users_[temp1] = temp2;
     }
 }

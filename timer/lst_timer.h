@@ -50,8 +50,8 @@ private:
 
 class Utils{
 public:
-    Utils();
-    ~Utils();
+    Utils() {};
+    ~Utils() {};
 
     void init(int timeslot);
     int setnonblocking(int fd);

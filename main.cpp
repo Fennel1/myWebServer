@@ -3,8 +3,8 @@
 
 int main(int argc, char *argv[]){
     std::string user = "root";
-    std::string passwd = "root";
-    std::string databasename = "qgydb";
+    std::string passwd = "";
+    std::string databasename = "webserver";
 
     Config config;
     config.parse_arg(argc, argv);
