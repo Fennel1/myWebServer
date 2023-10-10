@@ -48,13 +48,13 @@ void modfd(int epollfd, int fd, int ev, int et){
     event.data.fd = fd;
 
     if (et == 1) {
-        event.events = EPOLLIN | EPOLLET | EPOLLHUP;
+        event.events = ev | EPOLLET | EPOLLONESHOT | EPOLLRDHUP;
     }
     else {
-        event.events = EPOLLIN | EPOLLHUP;
+        event.events = ev | EPOLLONESHOT | EPOLLRDHUP;
     }
 
-    epoll_ctl(epollfd, EPOLL_CTL_ADD, fd, &event);
+    epoll_ctl(epollfd, EPOLL_CTL_MOD, fd, &event);
 }
 
 int http_conn::user_count_ = 0;
@@ -175,6 +175,8 @@ bool http_conn::read_once(){
             return false;
         }
         read_idx_ += bytes_read;
+        std::cout << 333 << std::endl;
+        std::cout << read_buf_ << std::endl;
         return true;
     }
 }
@@ -231,11 +233,13 @@ http_conn::HTTP_CODE http_conn::parse_request_line(char *text){
 
 //解析http请求的一个头部信息
 http_conn::HTTP_CODE http_conn::parse_headers(char *text){
-    if (text[0] = '\0'){
+    if (text[0] = '\0' || text[1] == '\0'){
+        std::cout << "text[0] = '\\0'" << std::endl;
         if (content_len_ != 0){
             check_state_ = CHECK_STATE_CONTENT;
             return NO_REQUEST;
         }
+        std::cout << "content_len_ = 0" << std::endl;
         return GET_REQUEST;
     }
     else if (strncasecmp(text, "Connection:", 11) == 0){
@@ -257,7 +261,7 @@ http_conn::HTTP_CODE http_conn::parse_headers(char *text){
         host_ = text;
     }
     else {
-        // LOG_INFO("oop!unknow header: %s", text);
+        LOG_INFO("oop!unknow header: %s", text);
     }
     return NO_REQUEST;
 }
@@ -280,26 +284,32 @@ http_conn::HTTP_CODE http_conn::process_read(){
     while((check_state_ == CHECK_STATE_CONTENT && line_status == LINE_OK) || ((line_status = parse_line()) == LINE_OK)){
         text = get_line();
         start_line_ = checked_idx_;
-        // LOG_INFO("%s", text);
+        LOG_INFO("%s", text);
         switch (check_state_){
             case CHECK_STATE_REQUESTLINE: 
+                std::cout << "CHECK_STATE_REQUESTLINE" << std::endl;
                 ret = parse_request_line(text);
                 if (ret == BAD_REQUEST){
                     return BAD_REQUEST;
                 }
                 break;
             case CHECK_STATE_HEADER:
+                std::cout << text << std::endl;
+                std::cout << "CHECK_STATE_HEADER" << std::endl;
                 ret = parse_headers(text);
                 if (ret == BAD_REQUEST){
                     return BAD_REQUEST;
                 }
                 else if (ret == GET_REQUEST){
+                    std::cout << "GET_REQUEST" << std::endl;
                     return do_request();
                 }
                 break;
             case CHECK_STATE_CONTENT:
+                std::cout << "CHECK_STATE_CONTENT" << std::endl;
                 ret = parse_content(text);
                 if (ret == GET_REQUEST){
+                    std::cout << "GET_REQUEST" << std::endl;
                     return do_request();
                 }
                 line_status = LINE_OPEN;
@@ -317,6 +327,7 @@ http_conn::HTTP_CODE http_conn::do_request(){
     const char *p = strrchr(url_, '/');
 
     //处理cgi
+    std::cout << "cgi_ = " << cgi_ << std::endl;
     if (cgi_ == 1 && (*(p+1) == '2' || *(p+1) == '3')){
         char flag = url_[1];
         char *url_real = (char *)malloc(sizeof(char)*200);
@@ -375,50 +386,51 @@ http_conn::HTTP_CODE http_conn::do_request(){
                 strcpy(url_, "/logError.html");
             }
         }
-
-        if(*(p+1) == '0'){
-            char *url_real = (char *)malloc(sizeof(char) * 200);
-            strcpy(url_real, "/register.html");
-            strncpy(real_file_ + len, url_real, strlen(url_real));
-            free(url_real);
-        }
-        else if (*(p+1) == '1'){
-            char *url_real = (char *)malloc(sizeof(char) * 200);
-            strcpy(url_real, "/log.html");
-            strncpy(real_file_ + len, url_real, strlen(url_real));
-            free(url_real);
-        }
-        else if (*(p+1) == '5'){
-            char *url_real = (char *)malloc(sizeof(char) * 200);
-            strcpy(url_real, "/picture.html");
-            strncpy(real_file_ + len, url_real, strlen(url_real));
-            free(url_real);
-        }
-        else if (*(p+1) == '6'){
-            char *url_real = (char *)malloc(sizeof(char) * 200);
-            strcpy(url_real, "/video.html");
-            strncpy(real_file_ + len, url_real, strlen(url_real));
-            free(url_real);
-        }
-        else{
-            strncpy(real_file_+len, url_, FILENAME_LEN-len-1);
-        }
-
-        if (stat(real_file_, &file_stat_) < 0){
-            return NO_REQUEST;
-        }
-        if (!(file_stat_.st_mode & S_IROTH)){
-            return FORBIDDEN_REQUEST;
-        }
-        if (S_ISDIR(file_stat_.st_mode)){
-            return BAD_REQUEST;
-        }
-
-        int fd = open(real_file_, O_RDONLY);
-        file_address_ = (char *)mmap(0, file_stat_.st_size, PROT_READ, MAP_PRIVATE, fd, 0);
-        close(fd);
-        return FILE_REQUEST;
     }
+
+    if(*(p+1) == '0'){
+        char *url_real = (char *)malloc(sizeof(char) * 200);
+        strcpy(url_real, "/register.html");
+        strncpy(real_file_ + len, url_real, strlen(url_real));
+        free(url_real);
+    }
+    else if (*(p+1) == '1'){
+        char *url_real = (char *)malloc(sizeof(char) * 200);
+        strcpy(url_real, "/log.html");
+        strncpy(real_file_ + len, url_real, strlen(url_real));
+        free(url_real);
+    }
+    else if (*(p+1) == '5'){
+        char *url_real = (char *)malloc(sizeof(char) * 200);
+        strcpy(url_real, "/picture.html");
+        strncpy(real_file_ + len, url_real, strlen(url_real));
+        free(url_real);
+    }
+    else if (*(p+1) == '6'){
+        char *url_real = (char *)malloc(sizeof(char) * 200);
+        strcpy(url_real, "/video.html");
+        strncpy(real_file_ + len, url_real, strlen(url_real));
+        free(url_real);
+    }
+    else{
+        strncpy(real_file_+len, url_, FILENAME_LEN-len-1);
+    }
+
+    std::cout << real_file_ << std::endl;
+    if (stat(real_file_, &file_stat_) < 0){
+        return NO_REQUEST;
+    }
+    if (!(file_stat_.st_mode & S_IROTH)){
+        return FORBIDDEN_REQUEST;
+    }
+    if (S_ISDIR(file_stat_.st_mode)){
+        return BAD_REQUEST;
+    }
+
+    int fd = open(real_file_, O_RDONLY);
+    file_address_ = (char *)mmap(0, file_stat_.st_size, PROT_READ, MAP_PRIVATE, fd, 0);
+    close(fd);
+    return FILE_REQUEST;
 }
 
 void http_conn::unmap(){
@@ -429,6 +441,7 @@ void http_conn::unmap(){
 }
 
 bool http_conn::write(){
+    std::cout << "write" << std::endl;
     if (bytes_to_send_ == 0){
         modfd(epollfd_, socketfd_, EPOLLIN, et_);
         init();
@@ -552,6 +565,8 @@ bool http_conn::process_write(HTTP_CODE ret){
                 iv_[1].iov_len = file_stat_.st_size;
                 iv_count_ = 2;
                 bytes_to_send_ = write_idx_ + file_stat_.st_size;
+                std::cout << write_buf_ << std::endl;
+                std::cout << file_address_ << std::endl;
                 return true;
             }
             else{
@@ -576,12 +591,15 @@ void http_conn::process(){
     HTTP_CODE read_ret = process_read();
     if (read_ret == NO_REQUEST){
         modfd(epollfd_, socketfd_, EPOLLIN, et_);
+        std::cout << 111 << std::endl;
         return;
     }
+    std::cout << 222 << std::endl;
     bool write_ret = process_write(read_ret);
     if (!write_ret){
         close_conn();
     }
+    std::cout << 333 << std::endl;
     modfd(epollfd_, socketfd_, EPOLLOUT, et_);
 }
 

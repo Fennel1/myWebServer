@@ -41,19 +41,19 @@ void WebServer::init(int port , std::string user, std::string passWord, std::str
 
 void WebServer::et(){
     if (et_ == 0){
-        listenfd_ = 0;
+        listenfdMode_ = 0;
         connfdMode_ = 0;
     }
     else if (et_ == 1){
-        listenfd_ = 0;
+        listenfdMode_ = 0;
         connfdMode_ = 1;
     }
     else if (et_ == 2){
-        listenfd_ = 1;
+        listenfdMode_ = 1;
         connfdMode_ = 0;
     }
     else if (et_ == 3){
-        listenfd_ = 1;
+        listenfdMode_ = 1;
         connfdMode_ = 1;
     }
 }
@@ -154,7 +154,7 @@ void WebServer::adjust_timer(util_timer *timer){
     // LOG_INFO("%s", "adjust timer once");
 }
 
-void WebServer::deal_timer(util_timer *timer, int socketfd){
+void WebServer::del_timer(util_timer *timer, int socketfd){
     timer->cb_func(&users_timer_[socketfd]);
     if (timer){
         utils_.timer_lst_.del_timer(timer);
@@ -211,7 +211,6 @@ bool WebServer::dealwithsignal(bool &timeout, bool &stop_server){
                 timeout = true;
                 break;
             case SIGTERM:
-                std::cout << "SIGTERM" << std::endl;
                 stop_server = true;
                 break;
         }
@@ -231,7 +230,7 @@ void WebServer::dealwithread(int socketfd){
         while(true){
             if (users_[socketfd].improv_ == 1){
                 if (users_[socketfd].timer_flag_ == 1){
-                    deal_timer(timer, socketfd);
+                    del_timer(timer, socketfd);
                     users_[socketfd].timer_flag_ = 0;
                 }
                 users_[socketfd].improv_ = 0;
@@ -249,7 +248,7 @@ void WebServer::dealwithread(int socketfd){
             }
         }
         else{
-            deal_timer(timer, socketfd);
+            del_timer(timer, socketfd);
         }
     }
 }
@@ -266,7 +265,7 @@ void WebServer::dealwithwrite(int socketfd){
         while(true){
             if (users_[socketfd].improv_ == 1){
                 if (users_[socketfd].timer_flag_ == 1){
-                    deal_timer(timer, socketfd);
+                    del_timer(timer, socketfd);
                     users_[socketfd].timer_flag_ = 0;
                 }
                 users_[socketfd].improv_ = 0;
@@ -283,7 +282,7 @@ void WebServer::dealwithwrite(int socketfd){
             }
         }
         else{
-            deal_timer(timer, socketfd);
+            del_timer(timer, socketfd);
         }
     }
 }
@@ -301,8 +300,10 @@ void WebServer::eventLoop(){
 
         for (int i=0; i<number; i++){
             int socketfd = events_[i].data.fd;
+            std::cout << socketfd;
 
             if (socketfd == listenfd_){
+                std::cout << " listen" << std::endl;
                 //处理新到的客户连接
                 bool flag = dealclientdata();
                 if (!flag){
@@ -312,7 +313,7 @@ void WebServer::eventLoop(){
             else if (events_[i].events & (EPOLLRDHUP | EPOLLHUP | EPOLLERR)){
                 //服务器端关闭连接，移除对应的定时器
                 util_timer *timer = users_timer_[socketfd].timer;
-                deal_timer(timer, socketfd);
+                del_timer(timer, socketfd);
             }
             else if (socketfd == pipefd_[0] && events_[i].events & EPOLLIN){
                 //处理信号
@@ -322,9 +323,11 @@ void WebServer::eventLoop(){
                 }
             }
             else if (events_[i].events & EPOLLIN){
+                std::cout << " read" << std::endl;
                 dealwithread(socketfd);
             }
             else if (events_[i].events & EPOLLOUT){
+                std::cout << " write" << std::endl;
                 dealwithwrite(socketfd);
             }
         }

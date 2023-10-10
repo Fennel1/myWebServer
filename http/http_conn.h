@@ -1,6 +1,7 @@
 #ifndef HTTPCONN_H
 #define HTTPCONN_H
 
+#include <iostream>
 #include <sys/socket.h>
 #include <fstream>
 #include <sys/mman.h>

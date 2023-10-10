@@ -1,45 +1,1454 @@
-2023-10-10 10:45:53.830318 [error]: epoll failure
-2023-10-10 10:46:33.630796 [error]: epoll failure
-2023-10-10 10:53:15.192268 [error]: epoll failure
-2023-10-10 10:54:26.238039 [info]: timer tick
-2023-10-10 10:54:31.238290 [info]: timer tick
-2023-10-10 10:54:36.238408 [info]: timer tick
-2023-10-10 10:54:41.238501 [info]: timer tick
-2023-10-10 10:54:46.238630 [info]: timer tick
-2023-10-10 10:54:51.238708 [info]: timer tick
-2023-10-10 10:54:56.238781 [info]: timer tick
-2023-10-10 10:55:01.238821 [info]: timer tick
-2023-10-10 10:55:06.238932 [info]: timer tick
-2023-10-10 10:55:07.752295 [error]: accept error:errno is:11
-2023-10-10 10:55:07.755681 [info]: deal with the client(127.0.0.1)
-2023-10-10 10:55:07.999083 [error]: accept error:errno is:11
-2023-10-10 10:55:11.238985 [info]: timer tick
-2023-10-10 10:55:16.239084 [info]: timer tick
-2023-10-10 10:55:21.239182 [info]: timer tick
-2023-10-10 10:55:26.239539 [info]: timer tick
-2023-10-10 10:55:31.239589 [info]: timer tick
-2023-10-10 10:55:36.239749 [info]: timer tick
-2023-10-10 10:55:40.616074 [error]: accept error:errno is:11
-2023-10-10 10:55:40.618242 [info]: deal with the client(127.0.0.1)
-2023-10-10 10:55:40.618591 [error]: accept error:errno is:11
-2023-10-10 10:55:40.863312 [error]: accept error:errno is:11
-2023-10-10 10:55:41.239832 [info]: timer tick
-2023-10-10 10:55:46.239892 [info]: timer tick
-2023-10-10 10:55:51.240020 [info]: timer tick
-2023-10-10 10:55:56.240420 [info]: timer tick
-2023-10-10 10:55:58.848519 [error]: accept error:errno is:11
-2023-10-10 10:55:58.848784 [error]: accept error:errno is:11
-2023-10-10 10:55:58.849562 [info]: deal with the client(127.0.0.1)
-2023-10-10 10:55:59.114907 [error]: accept error:errno is:11
-2023-10-10 10:56:01.240663 [info]: timer tick
-2023-10-10 10:56:05.518170 [error]: accept error:errno is:11
-2023-10-10 10:56:05.518868 [error]: accept error:errno is:11
-2023-10-10 10:56:05.519445 [info]: deal with the client(127.0.0.1)
-2023-10-10 10:56:06.240696 [info]: timer tick
-2023-10-10 10:56:11.240753 [info]: timer tick
-2023-10-10 10:56:16.241151 [info]: timer tick
-2023-10-10 10:56:21.241400 [info]: timer tick
-2023-10-10 10:56:26.241449 [info]: timer tick
-2023-10-10 10:56:31.241504 [info]: timer tick
-2023-10-10 10:56:36.241658 [info]: timer tick
-2023-10-10 10:56:41.241772 [info]: timer tick
+2023-10-10 13:04:18.746202 [info]: timer tick
+2023-10-10 13:04:26.155689 [info]: timer tick
+2023-10-10 13:04:31.012024 [info]: deal with the client(127.0.0.1)
+2023-10-10 13:04:31.155755 [info]: timer tick
+2023-10-10 13:04:36.155809 [info]: timer tick
+2023-10-10 13:04:41.155859 [info]: timer tick
+2023-10-10 13:04:46.156325 [info]: timer tick
+2023-10-10 13:04:47.511816 [info]: deal with the client(127.0.0.1)
+2023-10-10 13:04:51.156663 [info]: timer tick
+2023-10-10 13:04:56.156729 [info]: timer tick
+2023-10-10 13:05:01.156858 [info]: timer tick
+2023-10-10 13:05:06.157053 [info]: timer tick
+2023-10-10 13:05:11.157105 [info]: timer tick
+2023-10-10 13:05:11.481710 [info]: deal with the client(127.0.0.1)
+2023-10-10 13:05:16.157234 [info]: timer tick
+2023-10-10 13:05:21.157354 [info]: timer tick
+2023-10-10 13:05:26.158082 [info]: timer tick
+2023-10-10 13:05:31.158133 [info]: timer tick
+2023-10-10 13:05:36.158248 [info]: timer tick
+2023-10-10 13:05:41.158388 [info]: timer tick
+2023-10-10 13:05:46.158642 [info]: timer tick
+2023-10-10 13:05:51.158770 [info]: timer tick
+2023-10-10 13:05:56.158812 [info]: timer tick
+2023-10-10 13:05:56.484818 [info]: deal with the client(127.0.0.1)
+2023-10-10 13:06:01.158986 [info]: timer tick
+2023-10-10 13:09:17.054695 [info]: timer tick
+2023-10-10 13:09:18.329570 [info]: deal with the client(127.0.0.1)
+2023-10-10 13:09:18.329690 [info]: GET / HTTP/1.1
+2023-10-10 13:09:18.329715 [info]: Host: localhost:6521
+2023-10-10 13:09:18.329721 [info]: Connection: keep-alive
+2023-10-10 13:09:18.329724 [info]: Cache-Control: max-age=0
+2023-10-10 13:09:18.329726 [info]: sec-ch-ua: "Google Chrome";v="117", "Not;A=Brand";v="8", "Chromium";v="117"
+2023-10-10 13:09:18.329729 [info]: sec-ch-ua-mobile: ?0
+2023-10-10 13:09:18.329731 [info]: sec-ch-ua-platform: "Windows"
+2023-10-10 13:09:18.329733 [info]: Upgrade-Insecure-Requests: 1
+2023-10-10 13:09:18.329735 [info]: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36
+2023-10-10 13:09:18.329737 [info]: Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+2023-10-10 13:09:18.329739 [info]: Sec-Fetch-Site: none
+2023-10-10 13:09:18.329742 [info]: Sec-Fetch-Mode: navigate
+2023-10-10 13:09:18.329744 [info]: Sec-Fetch-User: ?1
+2023-10-10 13:09:18.329746 [info]: Sec-Fetch-Dest: document
+2023-10-10 13:09:18.329748 [info]: Accept-Encoding: gzip, deflate, br
+2023-10-10 13:09:18.329750 [info]: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8
+2023-10-10 13:09:18.329752 [info]: 
+2023-10-10 13:09:22.054818 [info]: timer tick
+2023-10-10 13:09:27.054967 [info]: timer tick
+2023-10-10 13:09:32.055158 [info]: timer tick
+2023-10-10 13:09:37.055588 [info]: timer tick
+2023-10-10 13:09:38.394106 [info]: deal with the client(127.0.0.1)
+2023-10-10 13:09:38.394241 [info]: GET / HTTP/1.1
+2023-10-10 13:09:38.394281 [info]: Host: localhost:6521
+2023-10-10 13:09:38.394289 [info]: Connection: keep-alive
+2023-10-10 13:09:38.394294 [info]: Cache-Control: max-age=0
+2023-10-10 13:09:38.394298 [info]: sec-ch-ua: "Google Chrome";v="117", "Not;A=Brand";v="8", "Chromium";v="117"
+2023-10-10 13:09:38.394303 [info]: sec-ch-ua-mobile: ?0
+2023-10-10 13:09:38.394308 [info]: sec-ch-ua-platform: "Windows"
+2023-10-10 13:09:38.394312 [info]: Upgrade-Insecure-Requests: 1
+2023-10-10 13:09:38.394317 [info]: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36
+2023-10-10 13:09:38.394322 [info]: Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+2023-10-10 13:09:38.394327 [info]: Sec-Fetch-Site: none
+2023-10-10 13:09:38.394331 [info]: Sec-Fetch-Mode: navigate
+2023-10-10 13:09:38.394348 [info]: Sec-Fetch-User: ?1
+2023-10-10 13:09:38.394354 [info]: Sec-Fetch-Dest: document
+2023-10-10 13:09:38.394360 [info]: Accept-Encoding: gzip, deflate, br
+2023-10-10 13:09:38.394365 [info]: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8
+2023-10-10 13:09:38.394379 [info]: 
+2023-10-10 13:09:42.055745 [info]: timer tick
+2023-10-10 13:09:47.055799 [info]: timer tick
+2023-10-10 13:09:52.055935 [info]: timer tick
+2023-10-10 13:09:57.056402 [info]: timer tick
+2023-10-10 13:10:02.056530 [info]: timer tick
+2023-10-10 13:10:02.410161 [info]: deal with the client(127.0.0.1)
+2023-10-10 13:10:02.410322 [info]: GET / HTTP/1.1
+2023-10-10 13:10:02.410356 [info]: Host: localhost:6521
+2023-10-10 13:10:02.410363 [info]: Connection: keep-alive
+2023-10-10 13:10:02.410368 [info]: Cache-Control: max-age=0
+2023-10-10 13:10:02.410371 [info]: sec-ch-ua: "Google Chrome";v="117", "Not;A=Brand";v="8", "Chromium";v="117"
+2023-10-10 13:10:02.410375 [info]: sec-ch-ua-mobile: ?0
+2023-10-10 13:10:02.410378 [info]: sec-ch-ua-platform: "Windows"
+2023-10-10 13:10:02.410382 [info]: Upgrade-Insecure-Requests: 1
+2023-10-10 13:10:02.410386 [info]: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36
+2023-10-10 13:10:02.410390 [info]: Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+2023-10-10 13:10:02.410393 [info]: Sec-Fetch-Site: none
+2023-10-10 13:10:02.410397 [info]: Sec-Fetch-Mode: navigate
+2023-10-10 13:10:02.410400 [info]: Sec-Fetch-User: ?1
+2023-10-10 13:10:02.410403 [info]: Sec-Fetch-Dest: document
+2023-10-10 13:10:02.410407 [info]: Accept-Encoding: gzip, deflate, br
+2023-10-10 13:10:02.410410 [info]: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8
+2023-10-10 13:10:02.410414 [info]: 
+2023-10-10 13:10:07.056802 [info]: timer tick
+2023-10-10 13:10:12.056968 [info]: timer tick
+2023-10-10 13:10:17.057208 [info]: timer tick
+2023-10-10 13:10:22.057274 [info]: timer tick
+2023-10-10 13:10:27.057327 [info]: timer tick
+2023-10-10 13:10:32.057435 [info]: timer tick
+2023-10-10 13:10:37.057579 [info]: timer tick
+2023-10-10 13:10:42.057695 [info]: timer tick
+2023-10-10 13:10:47.057780 [info]: timer tick
+2023-10-10 13:10:47.384535 [info]: deal with the client(127.0.0.1)
+2023-10-10 13:10:47.384676 [info]: GET / HTTP/1.1
+2023-10-10 13:10:47.384714 [info]: Host: localhost:6521
+2023-10-10 13:10:47.384721 [info]: Connection: keep-alive
+2023-10-10 13:10:47.384724 [info]: Cache-Control: max-age=0
+2023-10-10 13:10:47.384728 [info]: sec-ch-ua: "Google Chrome";v="117", "Not;A=Brand";v="8", "Chromium";v="117"
+2023-10-10 13:10:47.384731 [info]: sec-ch-ua-mobile: ?0
+2023-10-10 13:10:47.384734 [info]: sec-ch-ua-platform: "Windows"
+2023-10-10 13:10:47.384737 [info]: Upgrade-Insecure-Requests: 1
+2023-10-10 13:10:47.384741 [info]: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36
+2023-10-10 13:10:47.384744 [info]: Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+2023-10-10 13:10:47.384748 [info]: Sec-Fetch-Site: none
+2023-10-10 13:10:47.384751 [info]: Sec-Fetch-Mode: navigate
+2023-10-10 13:10:47.384754 [info]: Sec-Fetch-User: ?1
+2023-10-10 13:10:47.384757 [info]: Sec-Fetch-Dest: document
+2023-10-10 13:10:47.384760 [info]: Accept-Encoding: gzip, deflate, br
+2023-10-10 13:10:47.384764 [info]: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8
+2023-10-10 13:10:47.384767 [info]: 
+2023-10-10 13:10:52.057903 [info]: timer tick
+2023-10-10 13:10:57.058008 [info]: timer tick
+2023-10-10 13:11:02.058143 [info]: timer tick
+2023-10-10 13:11:07.058224 [info]: timer tick
+2023-10-10 13:11:12.058336 [info]: timer tick
+2023-10-10 13:11:17.058374 [info]: timer tick
+2023-10-10 13:11:22.058474 [info]: timer tick
+2023-10-10 13:11:27.058609 [info]: timer tick
+2023-10-10 13:13:45.103259 [info]: deal with the client(127.0.0.1)
+2023-10-10 13:13:45.103378 [info]: GET / HTTP/1.1
+2023-10-10 13:13:45.103403 [info]: Host: localhost:6521
+2023-10-10 13:13:45.103408 [info]: Connection: keep-alive
+2023-10-10 13:13:45.103412 [info]: Cache-Control: max-age=0
+2023-10-10 13:13:45.103415 [info]: sec-ch-ua: "Google Chrome";v="117", "Not;A=Brand";v="8", "Chromium";v="117"
+2023-10-10 13:13:45.103424 [info]: sec-ch-ua-mobile: ?0
+2023-10-10 13:13:45.103427 [info]: sec-ch-ua-platform: "Windows"
+2023-10-10 13:13:45.103430 [info]: Upgrade-Insecure-Requests: 1
+2023-10-10 13:13:45.103434 [info]: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36
+2023-10-10 13:13:45.103438 [info]: Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+2023-10-10 13:13:45.103442 [info]: Sec-Fetch-Site: none
+2023-10-10 13:13:45.103446 [info]: Sec-Fetch-Mode: navigate
+2023-10-10 13:13:45.103449 [info]: Sec-Fetch-User: ?1
+2023-10-10 13:13:45.103453 [info]: Sec-Fetch-Dest: document
+2023-10-10 13:13:45.103456 [info]: Accept-Encoding: gzip, deflate, br
+2023-10-10 13:13:45.103460 [info]: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8
+2023-10-10 13:13:45.103464 [info]: 
+2023-10-10 13:13:47.389060 [info]: timer tick
+2023-10-10 13:13:52.389147 [info]: timer tick
+2023-10-10 13:20:29.871999 [info]: deal with the client(127.0.0.1)
+2023-10-10 13:20:29.872073 [info]: GET / HTTP/1.1
+2023-10-10 13:20:29.872092 [info]: Host: localhost:6521
+2023-10-10 13:20:29.872096 [info]: Connection: keep-alive
+2023-10-10 13:20:29.872098 [info]: Cache-Control: max-age=0
+2023-10-10 13:20:29.872100 [info]: sec-ch-ua: "Google Chrome";v="117", "Not;A=Brand";v="8", "Chromium";v="117"
+2023-10-10 13:20:29.872103 [info]: sec-ch-ua-mobile: ?0
+2023-10-10 13:20:29.872105 [info]: sec-ch-ua-platform: "Windows"
+2023-10-10 13:20:29.872107 [info]: Upgrade-Insecure-Requests: 1
+2023-10-10 13:20:29.872109 [info]: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36
+2023-10-10 13:20:29.872112 [info]: Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+2023-10-10 13:20:29.872114 [info]: Sec-Fetch-Site: none
+2023-10-10 13:20:29.872116 [info]: Sec-Fetch-Mode: navigate
+2023-10-10 13:20:29.872118 [info]: Sec-Fetch-User: ?1
+2023-10-10 13:20:29.872120 [info]: Sec-Fetch-Dest: document
+2023-10-10 13:20:29.872122 [info]: Accept-Encoding: gzip, deflate, br
+2023-10-10 13:20:29.872124 [info]: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8
+2023-10-10 13:20:29.872127 [info]: 
+2023-10-10 13:20:31.990220 [info]: timer tick
+2023-10-10 13:20:36.990263 [info]: timer tick
+2023-10-10 13:20:41.990369 [info]: timer tick
+2023-10-10 13:20:46.990503 [info]: timer tick
+2023-10-10 13:20:48.341678 [info]: deal with the client(127.0.0.1)
+2023-10-10 13:20:48.341763 [info]: GET / HTTP/1.1
+2023-10-10 13:20:48.341778 [info]: Host: localhost:6521
+2023-10-10 13:20:48.341782 [info]: Connection: keep-alive
+2023-10-10 13:20:48.341784 [info]: Cache-Control: max-age=0
+2023-10-10 13:20:48.341787 [info]: sec-ch-ua: "Google Chrome";v="117", "Not;A=Brand";v="8", "Chromium";v="117"
+2023-10-10 13:20:48.341790 [info]: sec-ch-ua-mobile: ?0
+2023-10-10 13:20:48.341792 [info]: sec-ch-ua-platform: "Windows"
+2023-10-10 13:20:48.341795 [info]: Upgrade-Insecure-Requests: 1
+2023-10-10 13:20:48.341807 [info]: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36
+2023-10-10 13:20:48.341810 [info]: Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+2023-10-10 13:20:48.341813 [info]: Sec-Fetch-Site: none
+2023-10-10 13:20:48.341816 [info]: Sec-Fetch-Mode: navigate
+2023-10-10 13:20:48.341818 [info]: Sec-Fetch-User: ?1
+2023-10-10 13:20:48.341821 [info]: Sec-Fetch-Dest: document
+2023-10-10 13:20:48.341824 [info]: Accept-Encoding: gzip, deflate, br
+2023-10-10 13:20:48.341827 [info]: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8
+2023-10-10 13:20:48.341829 [info]: 
+2023-10-10 13:20:51.990594 [info]: timer tick
+2023-10-10 13:20:56.990688 [info]: timer tick
+2023-10-10 13:21:01.990784 [info]: timer tick
+2023-10-10 13:21:06.990934 [info]: timer tick
+2023-10-10 13:21:11.991002 [info]: timer tick
+2023-10-10 13:21:12.315331 [info]: deal with the client(127.0.0.1)
+2023-10-10 13:21:12.315431 [info]: GET / HTTP/1.1
+2023-10-10 13:21:12.315483 [info]: Host: localhost:6521
+2023-10-10 13:21:12.315490 [info]: Connection: keep-alive
+2023-10-10 13:21:12.315494 [info]: Cache-Control: max-age=0
+2023-10-10 13:21:12.315496 [info]: sec-ch-ua: "Google Chrome";v="117", "Not;A=Brand";v="8", "Chromium";v="117"
+2023-10-10 13:21:12.315499 [info]: sec-ch-ua-mobile: ?0
+2023-10-10 13:21:12.315502 [info]: sec-ch-ua-platform: "Windows"
+2023-10-10 13:21:12.315504 [info]: Upgrade-Insecure-Requests: 1
+2023-10-10 13:21:12.315507 [info]: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36
+2023-10-10 13:21:12.315510 [info]: Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+2023-10-10 13:21:12.315513 [info]: Sec-Fetch-Site: none
+2023-10-10 13:21:12.315515 [info]: Sec-Fetch-Mode: navigate
+2023-10-10 13:21:12.315518 [info]: Sec-Fetch-User: ?1
+2023-10-10 13:21:12.315521 [info]: Sec-Fetch-Dest: document
+2023-10-10 13:21:12.315524 [info]: Accept-Encoding: gzip, deflate, br
+2023-10-10 13:21:12.315526 [info]: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8
+2023-10-10 13:21:12.315529 [info]: 
+2023-10-10 13:21:16.991043 [info]: timer tick
+2023-10-10 13:21:21.991096 [info]: timer tick
+2023-10-10 13:21:26.991149 [info]: timer tick
+2023-10-10 13:21:31.991376 [info]: timer tick
+2023-10-10 13:21:36.991410 [info]: timer tick
+2023-10-10 13:21:41.991458 [info]: timer tick
+2023-10-10 13:21:46.991502 [info]: timer tick
+2023-10-10 13:21:51.991572 [info]: timer tick
+2023-10-10 13:21:56.991619 [info]: timer tick
+2023-10-10 13:22:01.991702 [info]: timer tick
+2023-10-10 13:22:02.323173 [info]: deal with the client(127.0.0.1)
+2023-10-10 13:22:02.323265 [info]: GET / HTTP/1.1
+2023-10-10 13:22:02.323291 [info]: Host: localhost:6521
+2023-10-10 13:22:02.323297 [info]: Connection: keep-alive
+2023-10-10 13:22:02.323302 [info]: Cache-Control: max-age=0
+2023-10-10 13:22:02.323306 [info]: sec-ch-ua: "Google Chrome";v="117", "Not;A=Brand";v="8", "Chromium";v="117"
+2023-10-10 13:22:02.323310 [info]: sec-ch-ua-mobile: ?0
+2023-10-10 13:22:02.323315 [info]: sec-ch-ua-platform: "Windows"
+2023-10-10 13:22:02.323319 [info]: Upgrade-Insecure-Requests: 1
+2023-10-10 13:22:02.323323 [info]: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36
+2023-10-10 13:22:02.323328 [info]: Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+2023-10-10 13:22:02.323332 [info]: Sec-Fetch-Site: none
+2023-10-10 13:22:02.323337 [info]: Sec-Fetch-Mode: navigate
+2023-10-10 13:22:02.323341 [info]: Sec-Fetch-User: ?1
+2023-10-10 13:22:02.323345 [info]: Sec-Fetch-Dest: document
+2023-10-10 13:22:02.323349 [info]: Accept-Encoding: gzip, deflate, br
+2023-10-10 13:22:02.323353 [info]: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8
+2023-10-10 13:22:02.323358 [info]: 
+2023-10-10 13:22:06.991742 [info]: timer tick
+2023-10-10 13:22:11.991821 [info]: timer tick
+2023-10-10 13:22:16.991894 [info]: timer tick
+2023-10-10 13:22:21.992023 [info]: timer tick
+2023-10-10 13:22:26.992097 [info]: timer tick
+2023-10-10 13:22:31.992181 [info]: timer tick
+2023-10-10 13:22:36.992241 [info]: timer tick
+2023-10-10 13:22:41.992294 [info]: timer tick
+2023-10-10 13:22:46.992419 [info]: timer tick
+2023-10-10 13:22:59.475185 [info]: deal with the client(127.0.0.1)
+2023-10-10 13:22:59.475574 [info]: GET / HTTP/1.1
+2023-10-10 13:22:59.475818 [info]: Host: localhost:6521
+2023-10-10 13:22:59.475858 [info]: Connection: keep-alive
+2023-10-10 13:22:59.475876 [info]: Cache-Control: max-age=0
+2023-10-10 13:22:59.475892 [info]: sec-ch-ua: "Google Chrome";v="117", "Not;A=Brand";v="8", "Chromium";v="117"
+2023-10-10 13:22:59.475909 [info]: sec-ch-ua-mobile: ?0
+2023-10-10 13:22:59.475926 [info]: sec-ch-ua-platform: "Windows"
+2023-10-10 13:22:59.475970 [info]: Upgrade-Insecure-Requests: 1
+2023-10-10 13:22:59.475987 [info]: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36
+2023-10-10 13:22:59.476006 [info]: Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+2023-10-10 13:22:59.476024 [info]: Sec-Fetch-Site: none
+2023-10-10 13:22:59.476040 [info]: Sec-Fetch-Mode: navigate
+2023-10-10 13:22:59.476055 [info]: Sec-Fetch-User: ?1
+2023-10-10 13:22:59.476069 [info]: Sec-Fetch-Dest: document
+2023-10-10 13:22:59.476089 [info]: Accept-Encoding: gzip, deflate, br
+2023-10-10 13:22:59.476105 [info]: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8
+2023-10-10 13:22:59.476120 [info]: 
+2023-10-10 13:23:01.183215 [info]: timer tick
+2023-10-10 13:23:06.183355 [info]: timer tick
+2023-10-10 13:23:11.183486 [info]: timer tick
+2023-10-10 13:23:16.184099 [info]: timer tick
+2023-10-10 13:23:21.184220 [info]: timer tick
+2023-10-10 13:23:26.184293 [info]: timer tick
+2023-10-10 13:23:31.184509 [info]: timer tick
+2023-10-10 13:23:36.184679 [info]: timer tick
+2023-10-10 13:23:41.184781 [info]: timer tick
+2023-10-10 13:23:46.184897 [info]: timer tick
+2023-10-10 13:23:51.185045 [info]: timer tick
+2023-10-10 13:23:56.185070 [info]: timer tick
+2023-10-10 13:24:01.185199 [info]: timer tick
+2023-10-10 13:24:06.185352 [info]: timer tick
+2023-10-10 13:24:11.185393 [info]: timer tick
+2023-10-10 13:24:16.185518 [info]: timer tick
+2023-10-10 13:24:16.532743 [info]: deal with the client(127.0.0.1)
+2023-10-10 13:24:16.532843 [info]: GET / HTTP/1.1
+2023-10-10 13:24:16.532860 [info]: Host: localhost:6521
+2023-10-10 13:24:16.532867 [info]: Connection: keep-alive
+2023-10-10 13:24:16.532872 [info]: Cache-Control: max-age=0
+2023-10-10 13:24:16.532877 [info]: sec-ch-ua: "Google Chrome";v="117", "Not;A=Brand";v="8", "Chromium";v="117"
+2023-10-10 13:24:16.532882 [info]: sec-ch-ua-mobile: ?0
+2023-10-10 13:24:16.532887 [info]: sec-ch-ua-platform: "Windows"
+2023-10-10 13:24:16.532892 [info]: Upgrade-Insecure-Requests: 1
+2023-10-10 13:24:16.532897 [info]: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36
+2023-10-10 13:24:16.532901 [info]: Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+2023-10-10 13:24:16.532904 [info]: Sec-Fetch-Site: none
+2023-10-10 13:24:16.532908 [info]: Sec-Fetch-Mode: navigate
+2023-10-10 13:24:16.532911 [info]: Sec-Fetch-User: ?1
+2023-10-10 13:24:16.532914 [info]: Sec-Fetch-Dest: document
+2023-10-10 13:24:16.532918 [info]: Accept-Encoding: gzip, deflate, br
+2023-10-10 13:24:16.532921 [info]: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8
+2023-10-10 13:24:16.532925 [info]: 
+2023-10-10 13:24:21.185573 [info]: timer tick
+2023-10-10 13:24:26.185685 [info]: timer tick
+2023-10-10 13:24:31.186043 [info]: timer tick
+2023-10-10 13:24:36.186104 [info]: timer tick
+2023-10-10 13:24:41.186403 [info]: timer tick
+2023-10-10 13:24:46.186489 [info]: timer tick
+2023-10-10 13:24:51.186640 [info]: timer tick
+2023-10-10 13:24:56.186862 [info]: timer tick
+2023-10-10 13:25:01.186973 [info]: timer tick
+2023-10-10 13:25:06.187033 [info]: timer tick
+2023-10-10 13:25:11.187103 [info]: timer tick
+2023-10-10 13:25:16.187180 [info]: timer tick
+2023-10-10 13:25:21.187251 [info]: timer tick
+2023-10-10 13:25:32.491903 [info]: deal with the client(127.0.0.1)
+2023-10-10 13:25:32.492016 [info]: GET / HTTP/1.1
+2023-10-10 13:25:32.492082 [info]: Host: localhost:6521
+2023-10-10 13:25:32.492094 [info]: Connection: keep-alive
+2023-10-10 13:25:32.492101 [info]: Cache-Control: max-age=0
+2023-10-10 13:25:32.492122 [info]: sec-ch-ua: "Google Chrome";v="117", "Not;A=Brand";v="8", "Chromium";v="117"
+2023-10-10 13:25:32.492130 [info]: sec-ch-ua-mobile: ?0
+2023-10-10 13:25:32.492137 [info]: sec-ch-ua-platform: "Windows"
+2023-10-10 13:25:32.492142 [info]: Upgrade-Insecure-Requests: 1
+2023-10-10 13:25:32.492155 [info]: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36
+2023-10-10 13:25:32.492161 [info]: Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+2023-10-10 13:25:32.492166 [info]: Sec-Fetch-Site: none
+2023-10-10 13:25:32.492171 [info]: Sec-Fetch-Mode: navigate
+2023-10-10 13:25:32.492175 [info]: Sec-Fetch-User: ?1
+2023-10-10 13:25:32.492180 [info]: Sec-Fetch-Dest: document
+2023-10-10 13:25:32.492186 [info]: Accept-Encoding: gzip, deflate, br
+2023-10-10 13:25:32.492193 [info]: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8
+2023-10-10 13:25:32.492199 [info]: 
+2023-10-10 13:25:35.788006 [info]: timer tick
+2023-10-10 13:25:40.788057 [info]: timer tick
+2023-10-10 13:25:45.788099 [info]: timer tick
+2023-10-10 13:25:50.788400 [info]: timer tick
+2023-10-10 13:25:55.788531 [info]: timer tick
+2023-10-10 13:26:00.788568 [info]: timer tick
+2023-10-10 13:26:05.788673 [info]: timer tick
+2023-10-10 13:26:10.788796 [info]: timer tick
+2023-10-10 13:26:15.788898 [info]: timer tick
+2023-10-10 13:26:20.789038 [info]: timer tick
+2023-10-10 13:26:25.789070 [info]: timer tick
+2023-10-10 13:26:35.518987 [info]: deal with the client(127.0.0.1)
+2023-10-10 13:26:35.519067 [info]: GET / HTTP/1.1
+2023-10-10 13:26:35.519093 [info]: Host: localhost:6521
+2023-10-10 13:26:35.519111 [info]: Connection: keep-alive
+2023-10-10 13:26:35.519127 [info]: Cache-Control: max-age=0
+2023-10-10 13:26:35.519133 [info]: sec-ch-ua: "Google Chrome";v="117", "Not;A=Brand";v="8", "Chromium";v="117"
+2023-10-10 13:26:35.519147 [info]: sec-ch-ua-mobile: ?0
+2023-10-10 13:26:35.519153 [info]: sec-ch-ua-platform: "Windows"
+2023-10-10 13:26:35.519167 [info]: Upgrade-Insecure-Requests: 1
+2023-10-10 13:26:35.519182 [info]: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36
+2023-10-10 13:26:35.519198 [info]: Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+2023-10-10 13:26:35.519213 [info]: Sec-Fetch-Site: none
+2023-10-10 13:26:35.519228 [info]: Sec-Fetch-Mode: navigate
+2023-10-10 13:26:35.519242 [info]: Sec-Fetch-User: ?1
+2023-10-10 13:26:35.519258 [info]: Sec-Fetch-Dest: document
+2023-10-10 13:26:35.519275 [info]: Accept-Encoding: gzip, deflate, br
+2023-10-10 13:26:35.519281 [info]: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8
+2023-10-10 13:26:35.519295 [info]: 
+2023-10-10 13:26:39.117080 [info]: timer tick
+2023-10-10 13:26:44.117161 [info]: timer tick
+2023-10-10 13:26:49.117204 [info]: timer tick
+2023-10-10 13:26:54.117710 [info]: timer tick
+2023-10-10 13:26:59.117879 [info]: timer tick
+2023-10-10 13:27:04.117917 [info]: timer tick
+2023-10-10 13:27:09.117981 [info]: timer tick
+2023-10-10 13:27:14.118012 [info]: timer tick
+2023-10-10 13:27:19.118130 [info]: timer tick
+2023-10-10 13:27:24.118249 [info]: timer tick
+2023-10-10 13:27:29.118396 [info]: timer tick
+2023-10-10 13:27:34.118614 [info]: timer tick
+2023-10-10 13:27:39.118746 [info]: timer tick
+2023-10-10 13:27:44.118870 [info]: timer tick
+2023-10-10 13:27:49.119099 [info]: timer tick
+2023-10-10 13:27:54.119212 [info]: timer tick
+2023-10-10 13:27:59.119306 [info]: timer tick
+2023-10-10 13:28:04.119380 [info]: timer tick
+2023-10-10 13:28:09.119503 [info]: timer tick
+2023-10-10 13:28:14.119738 [info]: timer tick
+2023-10-10 13:28:19.119818 [info]: timer tick
+2023-10-10 13:28:24.119850 [info]: timer tick
+2023-10-10 13:28:29.119998 [info]: timer tick
+2023-10-10 13:28:34.120049 [info]: timer tick
+2023-10-10 13:28:39.120144 [info]: timer tick
+2023-10-10 13:28:44.120243 [info]: timer tick
+2023-10-10 13:28:49.120374 [info]: timer tick
+2023-10-10 13:28:54.120430 [info]: timer tick
+2023-10-10 13:28:59.120527 [info]: timer tick
+2023-10-10 13:29:04.120616 [info]: timer tick
+2023-10-10 13:29:09.120743 [info]: timer tick
+2023-10-10 13:29:14.120868 [info]: timer tick
+2023-10-10 13:29:19.121082 [info]: timer tick
+2023-10-10 13:29:24.121183 [info]: timer tick
+2023-10-10 13:29:29.121274 [info]: timer tick
+2023-10-10 13:29:34.121374 [info]: timer tick
+2023-10-10 13:29:39.121477 [info]: timer tick
+2023-10-10 13:29:44.121612 [info]: timer tick
+2023-10-10 13:29:49.121703 [info]: timer tick
+2023-10-10 13:29:54.121852 [info]: timer tick
+2023-10-10 13:29:59.121933 [info]: timer tick
+2023-10-10 13:30:04.121974 [info]: timer tick
+2023-10-10 13:30:09.122188 [info]: timer tick
+2023-10-10 13:30:14.122235 [info]: timer tick
+2023-10-10 13:30:19.122306 [info]: timer tick
+2023-10-10 13:30:24.122380 [info]: timer tick
+2023-10-10 13:30:29.122452 [info]: timer tick
+2023-10-10 13:30:34.122566 [info]: timer tick
+2023-10-10 13:30:39.122680 [info]: timer tick
+2023-10-10 13:30:44.122710 [info]: timer tick
+2023-10-10 13:30:49.122854 [info]: timer tick
+2023-10-10 13:30:54.122928 [info]: timer tick
+2023-10-10 13:30:59.123039 [info]: timer tick
+2023-10-10 13:31:04.123199 [info]: timer tick
+2023-10-10 13:31:09.123236 [info]: timer tick
+2023-10-10 13:31:14.123327 [info]: timer tick
+2023-10-10 13:31:19.123431 [info]: timer tick
+2023-10-10 13:31:24.123493 [info]: timer tick
+2023-10-10 13:31:29.123565 [info]: timer tick
+2023-10-10 13:31:34.123622 [info]: timer tick
+2023-10-10 13:31:47.606146 [info]: deal with the client(127.0.0.1)
+2023-10-10 13:31:47.606371 [info]: GET / HTTP/1.1
+2023-10-10 13:31:47.606458 [info]: Host: localhost:6521
+2023-10-10 13:31:47.606508 [info]: oop!unknow header: 
+2023-10-10 13:31:47.606523 [info]: Connection: keep-alive
+2023-10-10 13:31:47.606567 [info]: oop!unknow header: 
+2023-10-10 13:31:47.606635 [info]: Cache-Control: max-age=0
+2023-10-10 13:31:47.606661 [info]: oop!unknow header: 
+2023-10-10 13:31:47.606668 [info]: sec-ch-ua: "Google Chrome";v="117", "Not;A=Brand";v="8", "Chromium";v="117"
+2023-10-10 13:31:47.606690 [info]: oop!unknow header: 
+2023-10-10 13:31:47.606697 [info]: sec-ch-ua-mobile: ?0
+2023-10-10 13:31:47.606719 [info]: oop!unknow header: 
+2023-10-10 13:31:47.606725 [info]: sec-ch-ua-platform: "Windows"
+2023-10-10 13:31:47.606743 [info]: oop!unknow header: 
+2023-10-10 13:31:47.606748 [info]: Upgrade-Insecure-Requests: 1
+2023-10-10 13:31:47.606766 [info]: oop!unknow header: 
+2023-10-10 13:31:47.606772 [info]: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36
+2023-10-10 13:31:47.606804 [info]: oop!unknow header: 
+2023-10-10 13:31:47.606810 [info]: Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+2023-10-10 13:31:47.606829 [info]: oop!unknow header: 
+2023-10-10 13:31:47.606835 [info]: Sec-Fetch-Site: none
+2023-10-10 13:31:47.606852 [info]: oop!unknow header: 
+2023-10-10 13:31:47.606858 [info]: Sec-Fetch-Mode: navigate
+2023-10-10 13:31:47.606876 [info]: oop!unknow header: 
+2023-10-10 13:31:47.606881 [info]: Sec-Fetch-User: ?1
+2023-10-10 13:31:47.606907 [info]: oop!unknow header: 
+2023-10-10 13:31:47.606915 [info]: Sec-Fetch-Dest: document
+2023-10-10 13:31:47.606948 [info]: oop!unknow header: 
+2023-10-10 13:31:47.606958 [info]: Accept-Encoding: gzip, deflate, br
+2023-10-10 13:31:47.606990 [info]: oop!unknow header: 
+2023-10-10 13:31:47.607000 [info]: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8
+2023-10-10 13:31:47.607032 [info]: oop!unknow header: 
+2023-10-10 13:31:47.607042 [info]: 
+2023-10-10 13:31:47.607099 [info]: oop!unknow header: 
+2023-10-10 13:31:50.601984 [info]: timer tick
+2023-10-10 13:31:55.602029 [info]: timer tick
+2023-10-10 13:32:00.602153 [info]: timer tick
+2023-10-10 13:32:10.673989 [info]: deal with the client(127.0.0.1)
+2023-10-10 13:32:10.674081 [info]: GET / HTTP/1.1
+2023-10-10 13:32:10.674112 [info]: Host: localhost:6521
+2023-10-10 13:32:10.674119 [info]: oop!unknow header: 
+2023-10-10 13:32:10.674122 [info]: Connection: keep-alive
+2023-10-10 13:32:10.674135 [info]: oop!unknow header: 
+2023-10-10 13:32:10.674138 [info]: Cache-Control: max-age=0
+2023-10-10 13:32:10.674152 [info]: oop!unknow header: 
+2023-10-10 13:32:10.674156 [info]: sec-ch-ua: "Google Chrome";v="117", "Not;A=Brand";v="8", "Chromium";v="117"
+2023-10-10 13:32:10.674175 [info]: oop!unknow header: 
+2023-10-10 13:32:10.674179 [info]: sec-ch-ua-mobile: ?0
+2023-10-10 13:32:10.674184 [info]: oop!unknow header: 
+2023-10-10 13:32:10.674187 [info]: sec-ch-ua-platform: "Windows"
+2023-10-10 13:32:10.674200 [info]: oop!unknow header: 
+2023-10-10 13:32:10.674203 [info]: Upgrade-Insecure-Requests: 1
+2023-10-10 13:32:10.674216 [info]: oop!unknow header: 
+2023-10-10 13:32:10.674220 [info]: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36
+2023-10-10 13:32:10.674234 [info]: oop!unknow header: 
+2023-10-10 13:32:10.674237 [info]: Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+2023-10-10 13:32:10.674251 [info]: oop!unknow header: 
+2023-10-10 13:32:10.674254 [info]: Sec-Fetch-Site: none
+2023-10-10 13:32:10.674268 [info]: oop!unknow header: 
+2023-10-10 13:32:10.674271 [info]: Sec-Fetch-Mode: navigate
+2023-10-10 13:32:10.674284 [info]: oop!unknow header: 
+2023-10-10 13:32:10.674288 [info]: Sec-Fetch-User: ?1
+2023-10-10 13:32:10.674311 [info]: oop!unknow header: 
+2023-10-10 13:32:10.674314 [info]: Sec-Fetch-Dest: document
+2023-10-10 13:32:10.674327 [info]: oop!unknow header: 
+2023-10-10 13:32:10.674331 [info]: Accept-Encoding: gzip, deflate, br
+2023-10-10 13:32:10.674344 [info]: oop!unknow header: 
+2023-10-10 13:32:10.674347 [info]: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8
+2023-10-10 13:32:10.674370 [info]: oop!unknow header: 
+2023-10-10 13:32:10.674374 [info]: 
+2023-10-10 13:32:10.674387 [info]: oop!unknow header: 
+2023-10-10 13:32:13.582436 [info]: timer tick
+2023-10-10 13:32:18.582490 [info]: timer tick
+2023-10-10 13:32:23.582527 [info]: timer tick
+2023-10-10 13:32:28.582702 [info]: timer tick
+2023-10-10 13:32:33.582819 [info]: timer tick
+2023-10-10 13:32:38.582901 [info]: timer tick
+2023-10-10 13:32:43.582989 [info]: timer tick
+2023-10-10 13:32:48.583040 [info]: timer tick
+2023-10-10 13:32:53.583308 [info]: timer tick
+2023-10-10 13:32:58.583425 [info]: timer tick
+2023-10-10 13:33:03.583511 [info]: timer tick
+2023-10-10 13:33:08.583637 [info]: timer tick
+2023-10-10 13:33:13.583696 [info]: timer tick
+2023-10-10 13:33:18.583822 [info]: timer tick
+2023-10-10 13:33:23.584077 [info]: timer tick
+2023-10-10 13:33:28.584205 [info]: timer tick
+2023-10-10 13:33:33.584385 [info]: timer tick
+2023-10-10 13:33:38.584548 [info]: timer tick
+2023-10-10 13:33:43.584677 [info]: timer tick
+2023-10-10 13:33:48.584747 [info]: timer tick
+2023-10-10 13:33:53.584961 [info]: timer tick
+2023-10-10 13:33:58.584997 [info]: timer tick
+2023-10-10 13:34:03.585032 [info]: timer tick
+2023-10-10 13:34:08.585096 [info]: timer tick
+2023-10-10 13:34:13.585250 [info]: timer tick
+2023-10-10 13:34:18.585280 [info]: timer tick
+2023-10-10 13:34:23.585321 [info]: timer tick
+2023-10-10 13:34:30.628310 [info]: deal with the client(127.0.0.1)
+2023-10-10 13:34:30.628414 [info]: GET / HTTP/1.1
+2023-10-10 13:34:30.628451 [info]: Host: localhost:6521
+2023-10-10 13:34:30.628469 [info]: oop!unknow header: 
+2023-10-10 13:34:30.628473 [info]: Connection: keep-alive
+2023-10-10 13:34:30.628486 [info]: oop!unknow header: 
+2023-10-10 13:34:30.628489 [info]: Cache-Control: max-age=0
+2023-10-10 13:34:30.628502 [info]: oop!unknow header: 
+2023-10-10 13:34:30.628506 [info]: sec-ch-ua: "Google Chrome";v="117", "Not;A=Brand";v="8", "Chromium";v="117"
+2023-10-10 13:34:30.628519 [info]: oop!unknow header: 
+2023-10-10 13:34:30.628522 [info]: sec-ch-ua-mobile: ?0
+2023-10-10 13:34:30.628535 [info]: oop!unknow header: 
+2023-10-10 13:34:30.628539 [info]: sec-ch-ua-platform: "Windows"
+2023-10-10 13:34:30.628555 [info]: oop!unknow header: 
+2023-10-10 13:34:30.628559 [info]: Upgrade-Insecure-Requests: 1
+2023-10-10 13:34:30.628574 [info]: oop!unknow header: 
+2023-10-10 13:34:30.628579 [info]: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36
+2023-10-10 13:34:30.628604 [info]: oop!unknow header: 
+2023-10-10 13:34:30.628608 [info]: Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+2023-10-10 13:34:30.628624 [info]: oop!unknow header: 
+2023-10-10 13:34:30.628627 [info]: Sec-Fetch-Site: none
+2023-10-10 13:34:30.628643 [info]: oop!unknow header: 
+2023-10-10 13:34:30.628647 [info]: Sec-Fetch-Mode: navigate
+2023-10-10 13:34:30.628662 [info]: oop!unknow header: 
+2023-10-10 13:34:30.628666 [info]: Sec-Fetch-User: ?1
+2023-10-10 13:34:30.628681 [info]: oop!unknow header: 
+2023-10-10 13:34:30.628685 [info]: Sec-Fetch-Dest: document
+2023-10-10 13:34:30.628701 [info]: oop!unknow header: 
+2023-10-10 13:34:30.628705 [info]: Accept-Encoding: gzip, deflate, br
+2023-10-10 13:34:30.628721 [info]: oop!unknow header: 
+2023-10-10 13:34:30.628726 [info]: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8
+2023-10-10 13:34:30.628746 [info]: oop!unknow header: 
+2023-10-10 13:34:30.628751 [info]: 
+2023-10-10 13:34:30.628758 [info]: oop!unknow header: 
+2023-10-10 13:34:32.391983 [info]: timer tick
+2023-10-10 13:34:37.392098 [info]: timer tick
+2023-10-10 13:34:42.392192 [info]: timer tick
+2023-10-10 13:34:47.392580 [info]: timer tick
+2023-10-10 13:34:52.392671 [info]: timer tick
+2023-10-10 13:34:57.392741 [info]: timer tick
+2023-10-10 13:35:02.392825 [info]: timer tick
+2023-10-10 13:35:07.393030 [info]: timer tick
+2023-10-10 13:35:12.393128 [info]: timer tick
+2023-10-10 13:35:17.393176 [info]: timer tick
+2023-10-10 13:35:22.393315 [info]: timer tick
+2023-10-10 13:35:27.393475 [info]: timer tick
+2023-10-10 13:35:32.393517 [info]: timer tick
+2023-10-10 13:35:37.393621 [info]: timer tick
+2023-10-10 13:35:42.393720 [info]: timer tick
+2023-10-10 13:35:47.393759 [info]: timer tick
+2023-10-10 13:35:52.395554 [info]: timer tick
+2023-10-10 13:36:02.144779 [info]: deal with the client(127.0.0.1)
+2023-10-10 13:36:02.144863 [info]: GET / HTTP/1.1
+2023-10-10 13:36:02.144913 [info]: Host: localhost:6521
+2023-10-10 13:36:02.144933 [info]: oop!unknow header: 
+2023-10-10 13:36:02.144938 [info]: Connection: keep-alive
+2023-10-10 13:36:02.144956 [info]: oop!unknow header: 
+2023-10-10 13:36:02.144960 [info]: Cache-Control: max-age=0
+2023-10-10 13:36:02.144965 [info]: oop!unknow header: 
+2023-10-10 13:36:02.144982 [info]: sec-ch-ua: "Google Chrome";v="117", "Not;A=Brand";v="8", "Chromium";v="117"
+2023-10-10 13:36:02.144987 [info]: oop!unknow header: 
+2023-10-10 13:36:02.144990 [info]: sec-ch-ua-mobile: ?0
+2023-10-10 13:36:02.144995 [info]: oop!unknow header: 
+2023-10-10 13:36:02.144998 [info]: sec-ch-ua-platform: "Windows"
+2023-10-10 13:36:02.145003 [info]: oop!unknow header: 
+2023-10-10 13:36:02.145006 [info]: Upgrade-Insecure-Requests: 1
+2023-10-10 13:36:02.145023 [info]: oop!unknow header: 
+2023-10-10 13:36:02.145029 [info]: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36
+2023-10-10 13:36:02.145052 [info]: oop!unknow header: 
+2023-10-10 13:36:02.145057 [info]: Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+2023-10-10 13:36:02.145074 [info]: oop!unknow header: 
+2023-10-10 13:36:02.145079 [info]: Sec-Fetch-Site: none
+2023-10-10 13:36:02.145096 [info]: oop!unknow header: 
+2023-10-10 13:36:02.145101 [info]: Sec-Fetch-Mode: navigate
+2023-10-10 13:36:02.145106 [info]: oop!unknow header: 
+2023-10-10 13:36:02.145108 [info]: Sec-Fetch-User: ?1
+2023-10-10 13:36:02.145113 [info]: oop!unknow header: 
+2023-10-10 13:36:02.145115 [info]: Sec-Fetch-Dest: document
+2023-10-10 13:36:02.145118 [info]: oop!unknow header: 
+2023-10-10 13:36:02.145121 [info]: Accept-Encoding: gzip, deflate, br
+2023-10-10 13:36:02.145124 [info]: oop!unknow header: 
+2023-10-10 13:36:02.145126 [info]: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8
+2023-10-10 13:36:02.145129 [info]: oop!unknow header: 
+2023-10-10 13:36:02.145132 [info]: 
+2023-10-10 13:36:02.145135 [info]: oop!unknow header: 
+2023-10-10 13:36:04.483393 [info]: timer tick
+2023-10-10 13:36:09.483469 [info]: timer tick
+2023-10-10 13:36:14.483525 [info]: timer tick
+2023-10-10 13:36:19.483880 [info]: timer tick
+2023-10-10 13:36:24.483991 [info]: timer tick
+2023-10-10 13:36:29.484069 [info]: timer tick
+2023-10-10 13:36:34.484116 [info]: timer tick
+2023-10-10 13:36:39.484252 [info]: timer tick
+2023-10-10 13:36:44.484397 [info]: timer tick
+2023-10-10 13:36:49.484454 [info]: timer tick
+2023-10-10 13:36:54.484532 [info]: timer tick
+2023-10-10 13:36:59.484596 [info]: timer tick
+2023-10-10 13:36:59.563098 [info]: deal with the client(127.0.0.1)
+2023-10-10 13:36:59.563222 [info]: GET / HTTP/1.1
+2023-10-10 13:36:59.563290 [info]: Host: localhost:6521
+2023-10-10 13:36:59.563328 [info]: oop!unknow header: 
+2023-10-10 13:36:59.563337 [info]: Connection: keep-alive
+2023-10-10 13:36:59.563365 [info]: oop!unknow header: 
+2023-10-10 13:36:59.563372 [info]: Cache-Control: max-age=0
+2023-10-10 13:36:59.563382 [info]: oop!unknow header: 
+2023-10-10 13:36:59.563387 [info]: sec-ch-ua: "Google Chrome";v="117", "Not;A=Brand";v="8", "Chromium";v="117"
+2023-10-10 13:36:59.563412 [info]: oop!unknow header: 
+2023-10-10 13:36:59.563420 [info]: sec-ch-ua-mobile: ?0
+2023-10-10 13:36:59.563446 [info]: oop!unknow header: 
+2023-10-10 13:36:59.563454 [info]: sec-ch-ua-platform: "Windows"
+2023-10-10 13:36:59.563479 [info]: oop!unknow header: 
+2023-10-10 13:36:59.563486 [info]: Upgrade-Insecure-Requests: 1
+2023-10-10 13:36:59.563513 [info]: oop!unknow header: 
+2023-10-10 13:36:59.563521 [info]: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36
+2023-10-10 13:36:59.563552 [info]: oop!unknow header: 
+2023-10-10 13:36:59.563560 [info]: Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+2023-10-10 13:36:59.563588 [info]: oop!unknow header: 
+2023-10-10 13:36:59.563596 [info]: Sec-Fetch-Site: none
+2023-10-10 13:36:59.563628 [info]: oop!unknow header: 
+2023-10-10 13:36:59.563636 [info]: Sec-Fetch-Mode: navigate
+2023-10-10 13:36:59.563663 [info]: oop!unknow header: 
+2023-10-10 13:36:59.563671 [info]: Sec-Fetch-User: ?1
+2023-10-10 13:36:59.563699 [info]: oop!unknow header: 
+2023-10-10 13:36:59.563707 [info]: Sec-Fetch-Dest: document
+2023-10-10 13:36:59.563753 [info]: oop!unknow header: 
+2023-10-10 13:36:59.563761 [info]: Accept-Encoding: gzip, deflate, br
+2023-10-10 13:36:59.563788 [info]: oop!unknow header: 
+2023-10-10 13:36:59.563797 [info]: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8
+2023-10-10 13:36:59.563825 [info]: oop!unknow header: 
+2023-10-10 13:36:59.563833 [info]: 
+2023-10-10 13:36:59.563878 [info]: oop!unknow header: 
+2023-10-10 13:37:04.484703 [info]: timer tick
+2023-10-10 13:37:09.484809 [info]: timer tick
+2023-10-10 13:37:14.485291 [info]: timer tick
+2023-10-10 13:37:19.485436 [info]: timer tick
+2023-10-10 13:37:24.485548 [info]: timer tick
+2023-10-10 13:37:29.485631 [info]: timer tick
+2023-10-10 13:37:34.485742 [info]: timer tick
+2023-10-10 13:37:39.485848 [info]: timer tick
+2023-10-10 13:37:44.485954 [info]: timer tick
+2023-10-10 13:37:49.486070 [info]: timer tick
+2023-10-10 13:37:54.486220 [info]: timer tick
+2023-10-10 13:37:59.486298 [info]: timer tick
+2023-10-10 13:38:04.486360 [info]: timer tick
+2023-10-10 13:38:09.486490 [info]: timer tick
+2023-10-10 13:38:14.486635 [info]: timer tick
+2023-10-10 13:38:19.486703 [info]: timer tick
+2023-10-10 13:38:24.486772 [info]: timer tick
+2023-10-10 13:38:29.486828 [info]: timer tick
+2023-10-10 13:38:39.910040 [info]: deal with the client(127.0.0.1)
+2023-10-10 13:38:39.910308 [info]: GET / HTTP/1.1
+2023-10-10 13:38:39.910480 [info]: Host: localhost:6521
+2023-10-10 13:38:39.910572 [info]: oop!unknow header: 
+2023-10-10 13:38:39.910595 [info]: Connection: keep-alive
+2023-10-10 13:38:39.910664 [info]: oop!unknow header: 
+2023-10-10 13:38:39.910683 [info]: Cache-Control: max-age=0
+2023-10-10 13:38:39.910752 [info]: oop!unknow header: 
+2023-10-10 13:38:39.910771 [info]: sec-ch-ua: "Google Chrome";v="117", "Not;A=Brand";v="8", "Chromium";v="117"
+2023-10-10 13:38:39.910862 [info]: oop!unknow header: 
+2023-10-10 13:38:39.910877 [info]: sec-ch-ua-mobile: ?0
+2023-10-10 13:38:39.910931 [info]: oop!unknow header: 
+2023-10-10 13:38:39.910945 [info]: sec-ch-ua-platform: "Windows"
+2023-10-10 13:38:39.910999 [info]: oop!unknow header: 
+2023-10-10 13:38:39.911012 [info]: Upgrade-Insecure-Requests: 1
+2023-10-10 13:38:39.911128 [info]: oop!unknow header: 
+2023-10-10 13:38:39.911143 [info]: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36
+2023-10-10 13:38:39.911198 [info]: oop!unknow header: 
+2023-10-10 13:38:39.911212 [info]: Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+2023-10-10 13:38:39.911266 [info]: oop!unknow header: 
+2023-10-10 13:38:39.911280 [info]: Sec-Fetch-Site: none
+2023-10-10 13:38:39.911332 [info]: oop!unknow header: 
+2023-10-10 13:38:39.911346 [info]: Sec-Fetch-Mode: navigate
+2023-10-10 13:38:39.911399 [info]: oop!unknow header: 
+2023-10-10 13:38:39.911413 [info]: Sec-Fetch-User: ?1
+2023-10-10 13:38:39.911467 [info]: oop!unknow header: 
+2023-10-10 13:38:39.911481 [info]: Sec-Fetch-Dest: document
+2023-10-10 13:38:39.911535 [info]: oop!unknow header: 
+2023-10-10 13:38:39.911548 [info]: Accept-Encoding: gzip, deflate, br
+2023-10-10 13:38:39.911614 [info]: oop!unknow header: 
+2023-10-10 13:38:39.911625 [info]: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8
+2023-10-10 13:38:39.911688 [info]: oop!unknow header: 
+2023-10-10 13:38:39.911705 [info]: 
+2023-10-10 13:38:42.627219 [info]: timer tick
+2023-10-10 13:38:47.627326 [info]: timer tick
+2023-10-10 13:38:52.627400 [info]: timer tick
+2023-10-10 13:38:57.627572 [info]: timer tick
+2023-10-10 13:39:02.627642 [info]: timer tick
+2023-10-10 13:39:07.627715 [info]: timer tick
+2023-10-10 13:39:12.627759 [info]: timer tick
+2023-10-10 13:39:17.627869 [info]: timer tick
+2023-10-10 13:39:22.627942 [info]: timer tick
+2023-10-10 13:39:27.628002 [info]: timer tick
+2023-10-10 13:39:32.628048 [info]: timer tick
+2023-10-10 13:39:37.628092 [info]: timer tick
+2023-10-10 13:39:42.628135 [info]: timer tick
+2023-10-10 13:39:47.628210 [info]: timer tick
+2023-10-10 13:39:52.628319 [info]: timer tick
+2023-10-10 13:39:57.628403 [info]: timer tick
+2023-10-10 13:40:02.628442 [info]: timer tick
+2023-10-10 13:40:07.628482 [info]: timer tick
+2023-10-10 13:40:12.628546 [info]: timer tick
+2023-10-10 13:40:17.628597 [info]: timer tick
+2023-10-10 13:40:22.628693 [info]: timer tick
+2023-10-10 13:40:27.628747 [info]: timer tick
+2023-10-10 13:40:32.628830 [info]: timer tick
+2023-10-10 13:40:37.628998 [info]: timer tick
+2023-10-10 13:40:42.629057 [info]: timer tick
+2023-10-10 13:40:47.629150 [info]: timer tick
+2023-10-10 13:40:52.629230 [info]: timer tick
+2023-10-10 13:40:57.629300 [info]: timer tick
+2023-10-10 13:41:02.629394 [info]: timer tick
+2023-10-10 13:41:07.629454 [info]: timer tick
+2023-10-10 13:41:12.629526 [info]: timer tick
+2023-10-10 13:41:17.629620 [info]: timer tick
+2023-10-10 13:41:22.629731 [info]: timer tick
+2023-10-10 13:41:27.629803 [info]: timer tick
+2023-10-10 13:41:32.629878 [info]: timer tick
+2023-10-10 13:41:37.629934 [info]: timer tick
+2023-10-10 13:41:42.629976 [info]: timer tick
+2023-10-10 13:41:47.630137 [info]: timer tick
+2023-10-10 13:41:52.630188 [info]: timer tick
+2023-10-10 13:41:57.630247 [info]: timer tick
+2023-10-10 13:42:02.630293 [info]: timer tick
+2023-10-10 13:42:07.630346 [info]: timer tick
+2023-10-10 13:42:15.554136 [info]: deal with the client(127.0.0.1)
+2023-10-10 13:42:15.554265 [info]: GET / HTTP/1.1
+2023-10-10 13:42:15.554338 [info]: Host: localhost:6521
+2023-10-10 13:42:15.554366 [info]: oop!unknow header: 
+2023-10-10 13:42:15.554372 [info]: Connection: keep-alive
+2023-10-10 13:42:15.554379 [info]: oop!unknow header: 
+2023-10-10 13:42:15.554383 [info]: Cache-Control: max-age=0
+2023-10-10 13:42:15.554388 [info]: oop!unknow header: 
+2023-10-10 13:42:15.554392 [info]: sec-ch-ua: "Google Chrome";v="117", "Not;A=Brand";v="8", "Chromium";v="117"
+2023-10-10 13:42:15.554407 [info]: oop!unknow header: 
+2023-10-10 13:42:15.554411 [info]: sec-ch-ua-mobile: ?0
+2023-10-10 13:42:15.554416 [info]: oop!unknow header: 
+2023-10-10 13:42:15.554419 [info]: sec-ch-ua-platform: "Windows"
+2023-10-10 13:42:15.554425 [info]: oop!unknow header: 
+2023-10-10 13:42:15.554429 [info]: Upgrade-Insecure-Requests: 1
+2023-10-10 13:42:15.554451 [info]: oop!unknow header: 
+2023-10-10 13:42:15.554456 [info]: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36
+2023-10-10 13:42:15.554480 [info]: oop!unknow header: 
+2023-10-10 13:42:15.554486 [info]: Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+2023-10-10 13:42:15.554508 [info]: oop!unknow header: 
+2023-10-10 13:42:15.554514 [info]: Sec-Fetch-Site: none
+2023-10-10 13:42:15.554536 [info]: oop!unknow header: 
+2023-10-10 13:42:15.554542 [info]: Sec-Fetch-Mode: navigate
+2023-10-10 13:42:15.554563 [info]: oop!unknow header: 
+2023-10-10 13:42:15.554569 [info]: Sec-Fetch-User: ?1
+2023-10-10 13:42:15.554606 [info]: oop!unknow header: 
+2023-10-10 13:42:15.554626 [info]: Sec-Fetch-Dest: document
+2023-10-10 13:42:15.554648 [info]: oop!unknow header: 
+2023-10-10 13:42:15.554653 [info]: Accept-Encoding: gzip, deflate, br
+2023-10-10 13:42:15.554675 [info]: oop!unknow header: 
+2023-10-10 13:42:15.554680 [info]: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8
+2023-10-10 13:42:15.554701 [info]: oop!unknow header: 
+2023-10-10 13:42:15.554706 [info]: 
+2023-10-10 13:42:18.820113 [info]: timer tick
+2023-10-10 13:42:23.820179 [info]: timer tick
+2023-10-10 13:42:28.820295 [info]: timer tick
+2023-10-10 13:42:33.820566 [info]: timer tick
+2023-10-10 13:42:38.820710 [info]: timer tick
+2023-10-10 13:42:43.820760 [info]: timer tick
+2023-10-10 13:42:48.820815 [info]: timer tick
+2023-10-10 13:42:56.008498 [info]: deal with the client(127.0.0.1)
+2023-10-10 13:42:56.008570 [info]: GET / HTTP/1.1
+2023-10-10 13:42:56.008594 [info]: Host: localhost:6521
+2023-10-10 13:42:56.008620 [info]: oop!unknow header: 
+2023-10-10 13:42:56.008625 [info]: Connection: keep-alive
+2023-10-10 13:42:56.008638 [info]: oop!unknow header: 
+2023-10-10 13:42:56.008642 [info]: Cache-Control: max-age=0
+2023-10-10 13:42:56.008655 [info]: oop!unknow header: 
+2023-10-10 13:42:56.008659 [info]: sec-ch-ua: "Google Chrome";v="117", "Not;A=Brand";v="8", "Chromium";v="117"
+2023-10-10 13:42:56.008676 [info]: oop!unknow header: 
+2023-10-10 13:42:56.008680 [info]: sec-ch-ua-mobile: ?0
+2023-10-10 13:42:56.008695 [info]: oop!unknow header: 
+2023-10-10 13:42:56.008700 [info]: sec-ch-ua-platform: "Windows"
+2023-10-10 13:42:56.008714 [info]: oop!unknow header: 
+2023-10-10 13:42:56.008718 [info]: Upgrade-Insecure-Requests: 1
+2023-10-10 13:42:56.008731 [info]: oop!unknow header: 
+2023-10-10 13:42:56.008735 [info]: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36
+2023-10-10 13:42:56.008748 [info]: oop!unknow header: 
+2023-10-10 13:42:56.008752 [info]: Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+2023-10-10 13:42:56.008765 [info]: oop!unknow header: 
+2023-10-10 13:42:56.008768 [info]: Sec-Fetch-Site: none
+2023-10-10 13:42:56.008782 [info]: oop!unknow header: 
+2023-10-10 13:42:56.008785 [info]: Sec-Fetch-Mode: navigate
+2023-10-10 13:42:56.008798 [info]: oop!unknow header: 
+2023-10-10 13:42:56.008801 [info]: Sec-Fetch-User: ?1
+2023-10-10 13:42:56.008814 [info]: oop!unknow header: 
+2023-10-10 13:42:56.008818 [info]: Sec-Fetch-Dest: document
+2023-10-10 13:42:56.008822 [info]: oop!unknow header: 
+2023-10-10 13:42:56.008824 [info]: Accept-Encoding: gzip, deflate, br
+2023-10-10 13:42:56.008828 [info]: oop!unknow header: 
+2023-10-10 13:42:56.008830 [info]: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8
+2023-10-10 13:42:56.008833 [info]: oop!unknow header: 
+2023-10-10 13:42:56.008842 [info]: 
+2023-10-10 13:42:59.245636 [info]: timer tick
+2023-10-10 13:43:04.245689 [info]: timer tick
+2023-10-10 13:43:09.245736 [info]: timer tick
+2023-10-10 13:43:14.246101 [info]: timer tick
+2023-10-10 13:43:19.246225 [info]: timer tick
+2023-10-10 13:43:24.246268 [info]: timer tick
+2023-10-10 13:43:29.246326 [info]: timer tick
+2023-10-10 13:43:34.246360 [info]: timer tick
+2023-10-10 13:43:39.246474 [info]: timer tick
+2023-10-10 13:43:44.246517 [info]: timer tick
+2023-10-10 13:43:49.246580 [info]: timer tick
+2023-10-10 13:43:54.246621 [info]: timer tick
+2023-10-10 13:44:03.059178 [info]: deal with the client(127.0.0.1)
+2023-10-10 13:44:03.059258 [info]: GET / HTTP/1.1
+2023-10-10 13:44:03.059309 [info]: Host: localhost:6521
+2023-10-10 13:44:03.059329 [info]: oop!unknow header: 
+2023-10-10 13:44:03.059334 [info]: Connection: keep-alive
+2023-10-10 13:44:03.059351 [info]: oop!unknow header: 
+2023-10-10 13:44:03.059355 [info]: Cache-Control: max-age=0
+2023-10-10 13:44:03.059373 [info]: oop!unknow header: 
+2023-10-10 13:44:03.059377 [info]: sec-ch-ua: "Google Chrome";v="117", "Not;A=Brand";v="8", "Chromium";v="117"
+2023-10-10 13:44:03.059394 [info]: oop!unknow header: 
+2023-10-10 13:44:03.059399 [info]: sec-ch-ua-mobile: ?0
+2023-10-10 13:44:03.059415 [info]: oop!unknow header: 
+2023-10-10 13:44:03.059419 [info]: sec-ch-ua-platform: "Windows"
+2023-10-10 13:44:03.059436 [info]: oop!unknow header: 
+2023-10-10 13:44:03.059441 [info]: Upgrade-Insecure-Requests: 1
+2023-10-10 13:44:03.059457 [info]: oop!unknow header: 
+2023-10-10 13:44:03.059462 [info]: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36
+2023-10-10 13:44:03.059479 [info]: oop!unknow header: 
+2023-10-10 13:44:03.059484 [info]: Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+2023-10-10 13:44:03.059502 [info]: oop!unknow header: 
+2023-10-10 13:44:03.059506 [info]: Sec-Fetch-Site: none
+2023-10-10 13:44:03.059523 [info]: oop!unknow header: 
+2023-10-10 13:44:03.059528 [info]: Sec-Fetch-Mode: navigate
+2023-10-10 13:44:03.059549 [info]: oop!unknow header: 
+2023-10-10 13:44:03.059556 [info]: Sec-Fetch-User: ?1
+2023-10-10 13:44:03.059580 [info]: oop!unknow header: 
+2023-10-10 13:44:03.059585 [info]: Sec-Fetch-Dest: document
+2023-10-10 13:44:03.059604 [info]: oop!unknow header: 
+2023-10-10 13:44:03.059609 [info]: Accept-Encoding: gzip, deflate, br
+2023-10-10 13:44:03.059630 [info]: oop!unknow header: 
+2023-10-10 13:44:03.059635 [info]: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8
+2023-10-10 13:44:03.059652 [info]: oop!unknow header: 
+2023-10-10 13:44:03.059657 [info]: 
+2023-10-10 13:44:05.816798 [info]: timer tick
+2023-10-10 13:44:10.816910 [info]: timer tick
+2023-10-10 13:44:15.817015 [info]: timer tick
+2023-10-10 13:44:20.817152 [info]: timer tick
+2023-10-10 13:44:25.817206 [info]: timer tick
+2023-10-10 13:44:30.817275 [info]: timer tick
+2023-10-10 13:44:35.817332 [info]: timer tick
+2023-10-10 13:44:40.817401 [info]: timer tick
+2023-10-10 13:44:46.944118 [info]: deal with the client(127.0.0.1)
+2023-10-10 13:44:46.944271 [info]: GET / HTTP/1.1
+2023-10-10 13:44:46.944335 [info]: Host: localhost:6521
+2023-10-10 13:44:46.944355 [info]: oop!unknow header: 
+2023-10-10 13:44:46.944360 [info]: Connection: keep-alive
+2023-10-10 13:44:46.944365 [info]: oop!unknow header: 
+2023-10-10 13:44:46.944368 [info]: Cache-Control: max-age=0
+2023-10-10 13:44:46.944372 [info]: oop!unknow header: 
+2023-10-10 13:44:46.944376 [info]: sec-ch-ua: "Google Chrome";v="117", "Not;A=Brand";v="8", "Chromium";v="117"
+2023-10-10 13:44:46.944393 [info]: oop!unknow header: 
+2023-10-10 13:44:46.944398 [info]: sec-ch-ua-mobile: ?0
+2023-10-10 13:44:46.944403 [info]: oop!unknow header: 
+2023-10-10 13:44:46.944693 [info]: sec-ch-ua-platform: "Windows"
+2023-10-10 13:44:46.944723 [info]: oop!unknow header: 
+2023-10-10 13:44:46.944728 [info]: Upgrade-Insecure-Requests: 1
+2023-10-10 13:44:46.944747 [info]: oop!unknow header: 
+2023-10-10 13:44:46.944761 [info]: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36
+2023-10-10 13:44:46.944779 [info]: oop!unknow header: 
+2023-10-10 13:44:46.944784 [info]: Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+2023-10-10 13:44:46.944804 [info]: oop!unknow header: 
+2023-10-10 13:44:46.944808 [info]: Sec-Fetch-Site: none
+2023-10-10 13:44:46.944825 [info]: oop!unknow header: 
+2023-10-10 13:44:46.944829 [info]: Sec-Fetch-Mode: navigate
+2023-10-10 13:44:46.944845 [info]: oop!unknow header: 
+2023-10-10 13:44:46.944849 [info]: Sec-Fetch-User: ?1
+2023-10-10 13:44:46.944864 [info]: oop!unknow header: 
+2023-10-10 13:44:46.944868 [info]: Sec-Fetch-Dest: document
+2023-10-10 13:44:46.944928 [info]: oop!unknow header: 
+2023-10-10 13:44:46.944945 [info]: Accept-Encoding: gzip, deflate, br
+2023-10-10 13:44:46.944967 [info]: oop!unknow header: 
+2023-10-10 13:44:46.944972 [info]: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8
+2023-10-10 13:44:46.944989 [info]: oop!unknow header: 
+2023-10-10 13:44:46.944994 [info]: 
+2023-10-10 13:44:50.088657 [info]: timer tick
+2023-10-10 13:44:55.088749 [info]: timer tick
+2023-10-10 13:45:00.088872 [info]: timer tick
+2023-10-10 13:45:05.089314 [info]: timer tick
+2023-10-10 13:45:10.089577 [info]: timer tick
+2023-10-10 13:45:15.089616 [info]: timer tick
+2023-10-10 13:45:20.089735 [info]: timer tick
+2023-10-10 13:45:25.089838 [info]: timer tick
+2023-10-10 13:45:30.089967 [info]: timer tick
+2023-10-10 13:45:35.090052 [info]: timer tick
+2023-10-10 13:45:40.090122 [info]: timer tick
+2023-10-10 13:45:45.090213 [info]: timer tick
+2023-10-10 13:45:50.090392 [info]: timer tick
+2023-10-10 13:45:55.090424 [info]: timer tick
+2023-10-10 13:46:00.090528 [info]: timer tick
+2023-10-10 13:46:05.090598 [info]: timer tick
+2023-10-10 13:46:10.090649 [info]: timer tick
+2023-10-10 13:46:22.138286 [info]: deal with the client(127.0.0.1)
+2023-10-10 13:46:22.138375 [info]: GET / HTTP/1.1
+2023-10-10 13:46:22.138424 [info]: Host: localhost:6521
+2023-10-10 13:46:22.138446 [info]: oop!unknow header: 
+2023-10-10 13:46:22.138451 [info]: Connection: keep-alive
+2023-10-10 13:46:22.138469 [info]: oop!unknow header: 
+2023-10-10 13:46:22.138475 [info]: Cache-Control: max-age=0
+2023-10-10 13:46:22.138493 [info]: oop!unknow header: 
+2023-10-10 13:46:22.138498 [info]: sec-ch-ua: "Google Chrome";v="117", "Not;A=Brand";v="8", "Chromium";v="117"
+2023-10-10 13:46:22.138518 [info]: oop!unknow header: 
+2023-10-10 13:46:22.138523 [info]: sec-ch-ua-mobile: ?0
+2023-10-10 13:46:22.138542 [info]: oop!unknow header: 
+2023-10-10 13:46:22.138547 [info]: sec-ch-ua-platform: "Windows"
+2023-10-10 13:46:22.138579 [info]: oop!unknow header: 
+2023-10-10 13:46:22.138584 [info]: Upgrade-Insecure-Requests: 1
+2023-10-10 13:46:22.138604 [info]: oop!unknow header: 
+2023-10-10 13:46:22.138610 [info]: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36
+2023-10-10 13:46:22.138618 [info]: oop!unknow header: 
+2023-10-10 13:46:22.138623 [info]: Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+2023-10-10 13:46:22.138643 [info]: oop!unknow header: 
+2023-10-10 13:46:22.138649 [info]: Sec-Fetch-Site: none
+2023-10-10 13:46:22.138683 [info]: oop!unknow header: 
+2023-10-10 13:46:22.138688 [info]: Sec-Fetch-Mode: navigate
+2023-10-10 13:46:22.138707 [info]: oop!unknow header: 
+2023-10-10 13:46:22.138713 [info]: Sec-Fetch-User: ?1
+2023-10-10 13:46:22.138732 [info]: oop!unknow header: 
+2023-10-10 13:46:22.138737 [info]: Sec-Fetch-Dest: document
+2023-10-10 13:46:22.138758 [info]: oop!unknow header: 
+2023-10-10 13:46:22.138764 [info]: Accept-Encoding: gzip, deflate, br
+2023-10-10 13:46:22.138782 [info]: oop!unknow header: 
+2023-10-10 13:46:22.138786 [info]: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8
+2023-10-10 13:46:22.138800 [info]: oop!unknow header: 
+2023-10-10 13:46:22.138811 [info]: 
+2023-10-10 13:46:24.411419 [info]: timer tick
+2023-10-10 13:46:29.411456 [info]: timer tick
+2023-10-10 13:46:34.411574 [info]: timer tick
+2023-10-10 13:46:39.411907 [info]: timer tick
+2023-10-10 13:46:44.412063 [info]: timer tick
+2023-10-10 13:46:49.412144 [info]: timer tick
+2023-10-10 13:46:54.412358 [info]: timer tick
+2023-10-10 13:46:59.412412 [info]: timer tick
+2023-10-10 13:47:04.412522 [info]: timer tick
+2023-10-10 13:47:09.412691 [info]: timer tick
+2023-10-10 13:47:14.412784 [info]: timer tick
+2023-10-10 13:47:19.412926 [info]: timer tick
+2023-10-10 13:47:24.413030 [info]: timer tick
+2023-10-10 13:47:29.413063 [info]: timer tick
+2023-10-10 13:47:34.413136 [info]: timer tick
+2023-10-10 13:47:43.086609 [info]: deal with the client(127.0.0.1)
+2023-10-10 13:47:43.086699 [info]: GET / HTTP/1.1
+2023-10-10 13:47:43.086725 [info]: Host: localhost:6521
+2023-10-10 13:47:43.086742 [info]: oop!unknow header: 
+2023-10-10 13:47:43.086747 [info]: Connection: keep-alive
+2023-10-10 13:47:43.086763 [info]: oop!unknow header: 
+2023-10-10 13:47:43.086767 [info]: Cache-Control: max-age=0
+2023-10-10 13:47:43.086771 [info]: oop!unknow header: 
+2023-10-10 13:47:43.086775 [info]: sec-ch-ua: "Google Chrome";v="117", "Not;A=Brand";v="8", "Chromium";v="117"
+2023-10-10 13:47:43.086780 [info]: oop!unknow header: 
+2023-10-10 13:47:43.086783 [info]: sec-ch-ua-mobile: ?0
+2023-10-10 13:47:43.086799 [info]: oop!unknow header: 
+2023-10-10 13:47:43.086803 [info]: sec-ch-ua-platform: "Windows"
+2023-10-10 13:47:43.086819 [info]: oop!unknow header: 
+2023-10-10 13:47:43.086824 [info]: Upgrade-Insecure-Requests: 1
+2023-10-10 13:47:43.086829 [info]: oop!unknow header: 
+2023-10-10 13:47:43.086833 [info]: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36
+2023-10-10 13:47:43.086850 [info]: oop!unknow header: 
+2023-10-10 13:47:43.086854 [info]: Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+2023-10-10 13:47:43.086870 [info]: oop!unknow header: 
+2023-10-10 13:47:43.086875 [info]: Sec-Fetch-Site: none
+2023-10-10 13:47:43.086890 [info]: oop!unknow header: 
+2023-10-10 13:47:43.086895 [info]: Sec-Fetch-Mode: navigate
+2023-10-10 13:47:43.086900 [info]: oop!unknow header: 
+2023-10-10 13:47:43.086904 [info]: Sec-Fetch-User: ?1
+2023-10-10 13:47:43.086907 [info]: oop!unknow header: 
+2023-10-10 13:47:43.086909 [info]: Sec-Fetch-Dest: document
+2023-10-10 13:47:43.086912 [info]: oop!unknow header: 
+2023-10-10 13:47:43.086915 [info]: Accept-Encoding: gzip, deflate, br
+2023-10-10 13:47:43.086918 [info]: oop!unknow header: 
+2023-10-10 13:47:43.086920 [info]: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8
+2023-10-10 13:47:43.086923 [info]: oop!unknow header: 
+2023-10-10 13:47:43.086926 [info]: 
+2023-10-10 13:47:45.978760 [info]: timer tick
+2023-10-10 13:47:50.978818 [info]: timer tick
+2023-10-10 13:47:55.978933 [info]: timer tick
+2023-10-10 13:48:00.979173 [info]: timer tick
+2023-10-10 13:48:05.979220 [info]: timer tick
+2023-10-10 13:48:10.979264 [info]: timer tick
+2023-10-10 13:48:15.979403 [info]: timer tick
+2023-10-10 13:48:20.979549 [info]: timer tick
+2023-10-10 13:48:25.979659 [info]: timer tick
+2023-10-10 13:48:30.979735 [info]: timer tick
+2023-10-10 13:48:35.979808 [info]: timer tick
+2023-10-10 13:48:40.979862 [info]: timer tick
+2023-10-10 13:48:51.564260 [info]: deal with the client(127.0.0.1)
+2023-10-10 13:48:51.564348 [info]: GET / HTTP/1.1
+2023-10-10 13:48:51.564381 [info]: Host: localhost:6521
+2023-10-10 13:48:51.564398 [info]: oop!unknow header: 
+2023-10-10 13:48:51.564403 [info]: Connection: keep-alive
+2023-10-10 13:48:51.564416 [info]: oop!unknow header: 
+2023-10-10 13:48:51.564419 [info]: Cache-Control: max-age=0
+2023-10-10 13:48:51.564433 [info]: oop!unknow header: 
+2023-10-10 13:48:51.564436 [info]: sec-ch-ua: "Google Chrome";v="117", "Not;A=Brand";v="8", "Chromium";v="117"
+2023-10-10 13:48:51.564449 [info]: oop!unknow header: 
+2023-10-10 13:48:51.564453 [info]: sec-ch-ua-mobile: ?0
+2023-10-10 13:48:51.564472 [info]: oop!unknow header: 
+2023-10-10 13:48:51.564475 [info]: sec-ch-ua-platform: "Windows"
+2023-10-10 13:48:51.564488 [info]: oop!unknow header: 
+2023-10-10 13:48:51.564491 [info]: Upgrade-Insecure-Requests: 1
+2023-10-10 13:48:51.564503 [info]: oop!unknow header: 
+2023-10-10 13:48:51.564506 [info]: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36
+2023-10-10 13:48:51.564519 [info]: oop!unknow header: 
+2023-10-10 13:48:51.564522 [info]: Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+2023-10-10 13:48:51.564535 [info]: oop!unknow header: 
+2023-10-10 13:48:51.564538 [info]: Sec-Fetch-Site: none
+2023-10-10 13:48:51.564553 [info]: oop!unknow header: 
+2023-10-10 13:48:51.564556 [info]: Sec-Fetch-Mode: navigate
+2023-10-10 13:48:51.564570 [info]: oop!unknow header: 
+2023-10-10 13:48:51.564577 [info]: Sec-Fetch-User: ?1
+2023-10-10 13:48:51.564601 [info]: oop!unknow header: 
+2023-10-10 13:48:51.564606 [info]: Sec-Fetch-Dest: document
+2023-10-10 13:48:51.564620 [info]: oop!unknow header: 
+2023-10-10 13:48:51.564624 [info]: Accept-Encoding: gzip, deflate, br
+2023-10-10 13:48:51.564638 [info]: oop!unknow header: 
+2023-10-10 13:48:51.564642 [info]: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8
+2023-10-10 13:48:51.564666 [info]: oop!unknow header: 
+2023-10-10 13:48:51.564670 [info]: 
+2023-10-10 13:48:54.330501 [info]: timer tick
+2023-10-10 13:48:59.330573 [info]: timer tick
+2023-10-10 13:49:04.330817 [info]: timer tick
+2023-10-10 13:49:09.331327 [info]: timer tick
+2023-10-10 13:49:14.331447 [info]: timer tick
+2023-10-10 13:49:19.331550 [info]: timer tick
+2023-10-10 13:49:24.331598 [info]: timer tick
+2023-10-10 13:49:29.331697 [info]: timer tick
+2023-10-10 13:49:34.331793 [info]: timer tick
+2023-10-10 13:49:39.331897 [info]: timer tick
+2023-10-10 13:49:44.331998 [info]: timer tick
+2023-10-10 13:49:49.332092 [info]: timer tick
+2023-10-10 13:49:54.332126 [info]: timer tick
+2023-10-10 13:49:59.332270 [info]: timer tick
+2023-10-10 13:50:04.332323 [info]: timer tick
+2023-10-10 13:50:09.332388 [info]: timer tick
+2023-10-10 13:50:14.332517 [info]: timer tick
+2023-10-10 13:50:19.332610 [info]: timer tick
+2023-10-10 13:50:24.332738 [info]: timer tick
+2023-10-10 13:50:29.333008 [info]: timer tick
+2023-10-10 13:50:34.333127 [info]: timer tick
+2023-10-10 13:50:39.333227 [info]: timer tick
+2023-10-10 13:50:44.333351 [info]: timer tick
+2023-10-10 13:50:49.333458 [info]: timer tick
+2023-10-10 13:50:54.333614 [info]: timer tick
+2023-10-10 13:50:59.333720 [info]: timer tick
+2023-10-10 13:51:04.333886 [info]: timer tick
+2023-10-10 13:51:09.333945 [info]: timer tick
+2023-10-10 13:51:14.333995 [info]: timer tick
+2023-10-10 13:51:19.334043 [info]: timer tick
+2023-10-10 13:51:24.334285 [info]: timer tick
+2023-10-10 13:51:29.334339 [info]: timer tick
+2023-10-10 13:51:34.334443 [info]: timer tick
+2023-10-10 13:51:39.334560 [info]: timer tick
+2023-10-10 13:51:44.334620 [info]: timer tick
+2023-10-10 13:51:49.334694 [info]: timer tick
+2023-10-10 13:51:54.334755 [info]: timer tick
+2023-10-10 13:51:59.334788 [info]: timer tick
+2023-10-10 13:52:07.393945 [info]: deal with the client(127.0.0.1)
+2023-10-10 13:52:07.394090 [info]: GET / HTTP/1.1
+2023-10-10 13:52:07.403104 [info]: Host: localhost:6521
+2023-10-10 13:52:07.403164 [info]: oop!unknow header: 
+2023-10-10 13:52:07.403170 [info]: Connection: keep-alive
+2023-10-10 13:52:07.403175 [info]: oop!unknow header: 
+2023-10-10 13:52:07.403179 [info]: Cache-Control: max-age=0
+2023-10-10 13:52:07.403183 [info]: oop!unknow header: 
+2023-10-10 13:52:07.403242 [info]: sec-ch-ua: "Google Chrome";v="117", "Not;A=Brand";v="8", "Chromium";v="117"
+2023-10-10 13:52:07.403260 [info]: oop!unknow header: 
+2023-10-10 13:52:07.403265 [info]: sec-ch-ua-mobile: ?0
+2023-10-10 13:52:07.403281 [info]: oop!unknow header: 
+2023-10-10 13:52:07.403285 [info]: sec-ch-ua-platform: "Windows"
+2023-10-10 13:52:07.403300 [info]: oop!unknow header: 
+2023-10-10 13:52:07.403352 [info]: Upgrade-Insecure-Requests: 1
+2023-10-10 13:52:07.403372 [info]: oop!unknow header: 
+2023-10-10 13:52:07.403376 [info]: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36
+2023-10-10 13:52:07.403393 [info]: oop!unknow header: 
+2023-10-10 13:52:07.403398 [info]: Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+2023-10-10 13:52:07.403414 [info]: oop!unknow header: 
+2023-10-10 13:52:07.403418 [info]: Sec-Fetch-Site: none
+2023-10-10 13:52:07.403433 [info]: oop!unknow header: 
+2023-10-10 13:52:07.403437 [info]: Sec-Fetch-Mode: navigate
+2023-10-10 13:52:07.403457 [info]: oop!unknow header: 
+2023-10-10 13:52:07.403534 [info]: Sec-Fetch-User: ?1
+2023-10-10 13:52:07.403571 [info]: oop!unknow header: 
+2023-10-10 13:52:07.403580 [info]: Sec-Fetch-Dest: document
+2023-10-10 13:52:07.403630 [info]: oop!unknow header: 
+2023-10-10 13:52:07.403639 [info]: Accept-Encoding: gzip, deflate, br
+2023-10-10 13:52:07.403672 [info]: oop!unknow header: 
+2023-10-10 13:52:07.403680 [info]: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8
+2023-10-10 13:52:07.403711 [info]: oop!unknow header: 
+2023-10-10 13:52:07.403719 [info]: 
+2023-10-10 13:52:10.674832 [info]: timer tick
+2023-10-10 13:52:15.674892 [info]: timer tick
+2023-10-10 13:52:20.675012 [info]: timer tick
+2023-10-10 13:52:25.675402 [info]: timer tick
+2023-10-10 13:52:30.675630 [info]: timer tick
+2023-10-10 13:52:35.675668 [info]: timer tick
+2023-10-10 13:52:40.675799 [info]: timer tick
+2023-10-10 13:52:45.675958 [info]: timer tick
+2023-10-10 13:52:50.676055 [info]: timer tick
+2023-10-10 13:52:55.676097 [info]: timer tick
+2023-10-10 13:53:00.676179 [info]: timer tick
+2023-10-10 13:53:05.676330 [info]: timer tick
+2023-10-10 13:53:10.676423 [info]: timer tick
+2023-10-10 13:53:15.676540 [info]: timer tick
+2023-10-10 13:53:20.676814 [info]: timer tick
+2023-10-10 13:53:25.676888 [info]: timer tick
+2023-10-10 13:53:30.677025 [info]: timer tick
+2023-10-10 13:53:35.677160 [info]: timer tick
+2023-10-10 13:53:40.677200 [info]: timer tick
+2023-10-10 13:53:45.677296 [info]: timer tick
+2023-10-10 13:53:50.677345 [info]: timer tick
+2023-10-10 13:53:55.677429 [info]: timer tick
+2023-10-10 13:54:00.677610 [info]: timer tick
+2023-10-10 13:54:05.677716 [info]: timer tick
+2023-10-10 13:54:10.677806 [info]: timer tick
+2023-10-10 13:54:15.677900 [info]: timer tick
+2023-10-10 13:54:20.678010 [info]: timer tick
+2023-10-10 13:54:25.678076 [info]: timer tick
+2023-10-10 13:54:43.483939 [info]: deal with the client(127.0.0.1)
+2023-10-10 13:54:43.484026 [info]: GET / HTTP/1.1
+2023-10-10 13:54:43.484062 [info]: Host: localhost:6521
+2023-10-10 13:54:43.484069 [info]: oop!unknow header: 
+2023-10-10 13:54:43.484073 [info]: Connection: keep-alive
+2023-10-10 13:54:43.484078 [info]: oop!unknow header: 
+2023-10-10 13:54:43.484081 [info]: Cache-Control: max-age=0
+2023-10-10 13:54:43.484086 [info]: oop!unknow header: 
+2023-10-10 13:54:43.484089 [info]: sec-ch-ua: "Google Chrome";v="117", "Not;A=Brand";v="8", "Chromium";v="117"
+2023-10-10 13:54:43.484094 [info]: oop!unknow header: 
+2023-10-10 13:54:43.484097 [info]: sec-ch-ua-mobile: ?0
+2023-10-10 13:54:43.484114 [info]: oop!unknow header: 
+2023-10-10 13:54:43.484118 [info]: sec-ch-ua-platform: "Windows"
+2023-10-10 13:54:43.484145 [info]: oop!unknow header: 
+2023-10-10 13:54:43.484149 [info]: Upgrade-Insecure-Requests: 1
+2023-10-10 13:54:43.484156 [info]: oop!unknow header: 
+2023-10-10 13:54:43.484159 [info]: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36
+2023-10-10 13:54:43.484166 [info]: oop!unknow header: 
+2023-10-10 13:54:43.484169 [info]: Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+2023-10-10 13:54:43.484175 [info]: oop!unknow header: 
+2023-10-10 13:54:43.484179 [info]: Sec-Fetch-Site: none
+2023-10-10 13:54:43.484184 [info]: oop!unknow header: 
+2023-10-10 13:54:43.484193 [info]: Sec-Fetch-Mode: navigate
+2023-10-10 13:54:43.484211 [info]: oop!unknow header: 
+2023-10-10 13:54:43.484215 [info]: Sec-Fetch-User: ?1
+2023-10-10 13:54:43.484232 [info]: oop!unknow header: 
+2023-10-10 13:54:43.484236 [info]: Sec-Fetch-Dest: document
+2023-10-10 13:54:43.484254 [info]: oop!unknow header: 
+2023-10-10 13:54:43.484259 [info]: Accept-Encoding: gzip, deflate, br
+2023-10-10 13:54:43.484264 [info]: oop!unknow header: 
+2023-10-10 13:54:43.484267 [info]: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8
+2023-10-10 13:54:43.484272 [info]: oop!unknow header: 
+2023-10-10 13:54:43.484275 [info]: 
+2023-10-10 13:54:45.852456 [info]: timer tick
+2023-10-10 13:54:50.852584 [info]: timer tick
+2023-10-10 13:54:55.852741 [info]: timer tick
+2023-10-10 13:55:00.852847 [info]: timer tick
+2023-10-10 13:55:05.852939 [info]: timer tick
+2023-10-10 13:55:10.852980 [info]: timer tick
+2023-10-10 13:55:15.853243 [info]: timer tick
+2023-10-10 13:55:20.853512 [info]: timer tick
+2023-10-10 13:55:25.853672 [info]: timer tick
+2023-10-10 13:55:30.853865 [info]: timer tick
+2023-10-10 13:55:35.853999 [info]: timer tick
+2023-10-10 13:55:40.854070 [info]: timer tick
+2023-10-10 13:55:45.854241 [info]: timer tick
+2023-10-10 13:55:50.854383 [info]: timer tick
+2023-10-10 13:55:55.854495 [info]: timer tick
+2023-10-10 13:56:00.854551 [info]: timer tick
+2023-10-10 13:56:05.854627 [info]: timer tick
+2023-10-10 13:56:10.854783 [info]: timer tick
+2023-10-10 13:56:15.854872 [info]: timer tick
+2023-10-10 13:56:20.854954 [info]: timer tick
+2023-10-10 13:56:25.855017 [info]: timer tick
+2023-10-10 13:56:30.855078 [info]: timer tick
+2023-10-10 13:56:35.855225 [info]: timer tick
+2023-10-10 13:56:40.855344 [info]: timer tick
+2023-10-10 13:56:45.855522 [info]: timer tick
+2023-10-10 13:56:50.855604 [info]: timer tick
+2023-10-10 13:56:55.855689 [info]: timer tick
+2023-10-10 13:57:00.855735 [info]: timer tick
+2023-10-10 13:57:05.855831 [info]: timer tick
+2023-10-10 13:57:10.855940 [info]: timer tick
+2023-10-10 13:57:15.856062 [info]: timer tick
+2023-10-10 13:57:20.856203 [info]: timer tick
+2023-10-10 13:57:25.856313 [info]: timer tick
+2023-10-10 13:57:30.856369 [info]: timer tick
+2023-10-10 13:57:35.856503 [info]: timer tick
+2023-10-10 13:57:40.856627 [info]: timer tick
+2023-10-10 13:57:45.856834 [info]: timer tick
+2023-10-10 13:57:50.856986 [info]: timer tick
+2023-10-10 13:57:55.857078 [info]: timer tick
+2023-10-10 13:58:00.857205 [info]: timer tick
+2023-10-10 13:58:05.857325 [info]: timer tick
+2023-10-10 13:58:10.857480 [info]: timer tick
+2023-10-10 13:58:15.857612 [info]: timer tick
+2023-10-10 13:58:20.857679 [info]: timer tick
+2023-10-10 13:58:25.857726 [info]: timer tick
+2023-10-10 13:58:30.857785 [info]: timer tick
+2023-10-10 13:58:35.858006 [info]: timer tick
+2023-10-10 13:58:40.858114 [info]: timer tick
+2023-10-10 13:58:45.858249 [info]: timer tick
+2023-10-10 13:58:50.858347 [info]: timer tick
+2023-10-10 13:58:55.858457 [info]: timer tick
+2023-10-10 13:59:00.858627 [info]: timer tick
+2023-10-10 13:59:05.858792 [info]: timer tick
+2023-10-10 13:59:10.858930 [info]: timer tick
+2023-10-10 13:59:15.859063 [info]: timer tick
+2023-10-10 13:59:20.859198 [info]: timer tick
+2023-10-10 13:59:25.859396 [info]: timer tick
+2023-10-10 13:59:30.859523 [info]: timer tick
+2023-10-10 13:59:35.859637 [info]: timer tick
+2023-10-10 13:59:40.859748 [info]: timer tick
+2023-10-10 13:59:45.859935 [info]: timer tick
+2023-10-10 13:59:50.860027 [info]: timer tick
+2023-10-10 13:59:55.860157 [info]: timer tick
+2023-10-10 14:00:00.860393 [info]: timer tick
+2023-10-10 14:00:05.860592 [info]: timer tick
+2023-10-10 14:00:10.860702 [info]: timer tick
+2023-10-10 14:00:15.860840 [info]: timer tick
+2023-10-10 14:00:20.860937 [info]: timer tick
+2023-10-10 14:00:25.861042 [info]: timer tick
+2023-10-10 14:00:30.861192 [info]: timer tick
+2023-10-10 14:00:35.861312 [info]: timer tick
+2023-10-10 14:00:40.861447 [info]: timer tick
+2023-10-10 14:00:45.861510 [info]: timer tick
+2023-10-10 14:00:50.861709 [info]: timer tick
+2023-10-10 14:00:55.861844 [info]: timer tick
+2023-10-10 14:01:00.861931 [info]: timer tick
+2023-10-10 14:01:05.862048 [info]: timer tick
+2023-10-10 14:01:10.862098 [info]: timer tick
+2023-10-10 14:01:15.862312 [info]: timer tick
+2023-10-10 14:01:20.862436 [info]: timer tick
+2023-10-10 14:01:25.862570 [info]: timer tick
+2023-10-10 14:01:30.862817 [info]: timer tick
+2023-10-10 14:01:35.863016 [info]: timer tick
+2023-10-10 14:01:40.863272 [info]: timer tick
+2023-10-10 14:01:45.863404 [info]: timer tick
+2023-10-10 14:01:50.863647 [info]: timer tick
+2023-10-10 14:01:55.863749 [info]: timer tick
+2023-10-10 14:02:00.863864 [info]: timer tick
+2023-10-10 14:02:05.863986 [info]: timer tick
+2023-10-10 14:02:10.864198 [info]: timer tick
+2023-10-10 14:02:15.864334 [info]: timer tick
+2023-10-10 14:02:20.864583 [info]: timer tick
+2023-10-10 14:02:25.864705 [info]: timer tick
+2023-10-10 14:02:30.864831 [info]: timer tick
+2023-10-10 14:02:35.865206 [info]: timer tick
+2023-10-10 14:02:40.865273 [info]: timer tick
+2023-10-10 14:02:45.865409 [info]: timer tick
+2023-10-10 14:02:50.865600 [info]: timer tick
+2023-10-10 14:02:55.865726 [info]: timer tick
+2023-10-10 14:03:00.865846 [info]: timer tick
+2023-10-10 14:03:05.865873 [info]: timer tick
+2023-10-10 14:03:10.866122 [info]: timer tick
+2023-10-10 14:03:15.866421 [info]: timer tick
+2023-10-10 14:03:20.866668 [info]: timer tick
+2023-10-10 14:03:25.866793 [info]: timer tick
+2023-10-10 14:03:30.866846 [info]: timer tick
+2023-10-10 14:03:35.866961 [info]: timer tick
+2023-10-10 14:03:40.867081 [info]: timer tick
+2023-10-10 14:03:45.867247 [info]: timer tick
+2023-10-10 14:03:50.867289 [info]: timer tick
+2023-10-10 14:03:55.867344 [info]: timer tick
+2023-10-10 14:04:00.867467 [info]: timer tick
+2023-10-10 14:04:05.867512 [info]: timer tick
+2023-10-10 14:04:10.867557 [info]: timer tick
+2023-10-10 14:04:15.867684 [info]: timer tick
+2023-10-10 14:04:20.867760 [info]: timer tick
+2023-10-10 14:04:25.867872 [info]: timer tick
+2023-10-10 14:04:30.867967 [info]: timer tick
+2023-10-10 14:04:35.868059 [info]: timer tick
+2023-10-10 14:04:40.868120 [info]: timer tick
+2023-10-10 14:04:45.868183 [info]: timer tick
+2023-10-10 14:04:50.868233 [info]: timer tick
+2023-10-10 14:04:55.868273 [info]: timer tick
+2023-10-10 14:05:00.868309 [info]: timer tick
+2023-10-10 14:05:05.868378 [info]: timer tick
+2023-10-10 14:05:10.868449 [info]: timer tick
+2023-10-10 14:05:15.868524 [info]: timer tick
+2023-10-10 14:05:20.868650 [info]: timer tick
+2023-10-10 14:05:25.868722 [info]: timer tick
+2023-10-10 14:05:30.868822 [info]: timer tick
+2023-10-10 14:05:35.868910 [info]: timer tick
+2023-10-10 14:05:40.868961 [info]: timer tick
+2023-10-10 14:05:45.869006 [info]: timer tick
+2023-10-10 14:05:50.869034 [info]: timer tick
+2023-10-10 14:05:55.869093 [info]: timer tick
+2023-10-10 14:06:00.869206 [info]: timer tick
+2023-10-10 14:06:05.869255 [info]: timer tick
+2023-10-10 14:06:10.869308 [info]: timer tick
+2023-10-10 14:06:27.282991 [info]: deal with the client(127.0.0.1)
+2023-10-10 14:06:27.283100 [info]: GET / HTTP/1.1
+2023-10-10 14:06:27.283131 [info]: Host: localhost:6521
+2023-10-10 14:06:27.283141 [info]: oop!unknow header: 
+2023-10-10 14:06:27.283146 [info]: Connection: keep-alive
+2023-10-10 14:06:27.283151 [info]: oop!unknow header: 
+2023-10-10 14:06:27.283155 [info]: Cache-Control: max-age=0
+2023-10-10 14:06:27.283216 [info]: oop!unknow header: 
+2023-10-10 14:06:27.283235 [info]: sec-ch-ua: "Google Chrome";v="117", "Not;A=Brand";v="8", "Chromium";v="117"
+2023-10-10 14:06:27.283259 [info]: oop!unknow header: 
+2023-10-10 14:06:27.283265 [info]: sec-ch-ua-mobile: ?0
+2023-10-10 14:06:27.283286 [info]: oop!unknow header: 
+2023-10-10 14:06:27.283293 [info]: sec-ch-ua-platform: "Windows"
+2023-10-10 14:06:27.283314 [info]: oop!unknow header: 
+2023-10-10 14:06:27.283319 [info]: Upgrade-Insecure-Requests: 1
+2023-10-10 14:06:27.283356 [info]: oop!unknow header: 
+2023-10-10 14:06:27.283362 [info]: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36
+2023-10-10 14:06:27.283382 [info]: oop!unknow header: 
+2023-10-10 14:06:27.283398 [info]: Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+2023-10-10 14:06:27.283418 [info]: oop!unknow header: 
+2023-10-10 14:06:27.283423 [info]: Sec-Fetch-Site: none
+2023-10-10 14:06:27.283429 [info]: oop!unknow header: 
+2023-10-10 14:06:27.283432 [info]: Sec-Fetch-Mode: navigate
+2023-10-10 14:06:27.283438 [info]: oop!unknow header: 
+2023-10-10 14:06:27.283441 [info]: Sec-Fetch-User: ?1
+2023-10-10 14:06:27.283446 [info]: oop!unknow header: 
+2023-10-10 14:06:27.283449 [info]: Sec-Fetch-Dest: document
+2023-10-10 14:06:27.283454 [info]: oop!unknow header: 
+2023-10-10 14:06:27.283458 [info]: Accept-Encoding: gzip, deflate, br
+2023-10-10 14:06:27.283463 [info]: oop!unknow header: 
+2023-10-10 14:06:27.283467 [info]: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8
+2023-10-10 14:06:27.283500 [info]: oop!unknow header: 
+2023-10-10 14:06:27.283505 [info]: 
+2023-10-10 14:06:29.707858 [info]: timer tick
+2023-10-10 14:06:34.708003 [info]: timer tick
+2023-10-10 14:06:39.708180 [info]: timer tick
+2023-10-10 14:06:44.708446 [info]: timer tick
+2023-10-10 14:06:49.708601 [info]: timer tick
+2023-10-10 14:06:54.708761 [info]: timer tick
+2023-10-10 14:06:59.708822 [info]: timer tick
+2023-10-10 14:07:04.709005 [info]: timer tick
+2023-10-10 14:07:09.709343 [info]: timer tick
+2023-10-10 14:07:14.709435 [info]: timer tick
+2023-10-10 14:07:19.709574 [info]: timer tick
+2023-10-10 14:07:24.709782 [info]: timer tick
+2023-10-10 14:07:29.709830 [info]: timer tick
+2023-10-10 14:07:34.709985 [info]: timer tick
+2023-10-10 14:07:39.710071 [info]: timer tick
+2023-10-10 14:07:44.710106 [info]: timer tick
+2023-10-10 14:07:49.710256 [info]: timer tick
+2023-10-10 14:07:54.710385 [info]: timer tick
+2023-10-10 14:07:59.710559 [info]: timer tick
+2023-10-10 14:08:04.710640 [info]: timer tick
+2023-10-10 14:08:09.710700 [info]: timer tick
+2023-10-10 14:08:14.710739 [info]: timer tick
+2023-10-10 14:08:19.710867 [info]: timer tick
+2023-10-10 14:08:24.710956 [info]: timer tick
+2023-10-10 14:08:29.711061 [info]: timer tick
+2023-10-10 14:08:34.711176 [info]: timer tick
+2023-10-10 14:08:39.711297 [info]: timer tick
+2023-10-10 14:08:44.711473 [info]: timer tick
+2023-10-10 14:08:49.711616 [info]: timer tick
+2023-10-10 14:08:54.711754 [info]: timer tick
+2023-10-10 14:08:59.711864 [info]: timer tick
+2023-10-10 14:09:04.711975 [info]: timer tick
+2023-10-10 14:09:09.712014 [info]: timer tick
+2023-10-10 14:09:14.712156 [info]: timer tick
+2023-10-10 14:09:19.712204 [info]: timer tick
+2023-10-10 14:09:24.712311 [info]: timer tick
+2023-10-10 14:09:29.712398 [info]: timer tick
+2023-10-10 14:09:34.712491 [info]: timer tick
+2023-10-10 14:09:39.712742 [info]: timer tick
+2023-10-10 14:09:44.712874 [info]: timer tick
+2023-10-10 14:09:49.712936 [info]: timer tick
+2023-10-10 14:09:54.713000 [info]: timer tick
+2023-10-10 14:09:59.713129 [info]: timer tick
+2023-10-10 14:10:04.713259 [info]: timer tick
+2023-10-10 14:10:09.713297 [info]: timer tick
+2023-10-10 14:10:14.713383 [info]: timer tick
+2023-10-10 14:10:19.713434 [info]: timer tick
+2023-10-10 14:10:24.713484 [info]: timer tick
+2023-10-10 14:10:34.589887 [info]: deal with the client(127.0.0.1)
+2023-10-10 14:10:34.589985 [info]: GET / HTTP/1.1
+2023-10-10 14:10:34.590020 [info]: Host: localhost:6521
+2023-10-10 14:10:34.590045 [info]: oop!unknow header: 
+2023-10-10 14:10:34.590061 [info]: Connection: keep-alive
+2023-10-10 14:10:34.590080 [info]: oop!unknow header: 
+2023-10-10 14:10:34.590085 [info]: Cache-Control: max-age=0
+2023-10-10 14:10:34.590103 [info]: oop!unknow header: 
+2023-10-10 14:10:34.590107 [info]: sec-ch-ua: "Google Chrome";v="117", "Not;A=Brand";v="8", "Chromium";v="117"
+2023-10-10 14:10:34.590125 [info]: oop!unknow header: 
+2023-10-10 14:10:34.590129 [info]: sec-ch-ua-mobile: ?0
+2023-10-10 14:10:34.590147 [info]: oop!unknow header: 
+2023-10-10 14:10:34.590152 [info]: sec-ch-ua-platform: "Windows"
+2023-10-10 14:10:34.590169 [info]: oop!unknow header: 
+2023-10-10 14:10:34.590173 [info]: Upgrade-Insecure-Requests: 1
+2023-10-10 14:10:34.590200 [info]: oop!unknow header: 
+2023-10-10 14:10:34.590204 [info]: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36
+2023-10-10 14:10:34.590211 [info]: oop!unknow header: 
+2023-10-10 14:10:34.590214 [info]: Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+2023-10-10 14:10:34.590219 [info]: oop!unknow header: 
+2023-10-10 14:10:34.590222 [info]: Sec-Fetch-Site: none
+2023-10-10 14:10:34.590228 [info]: oop!unknow header: 
+2023-10-10 14:10:34.590231 [info]: Sec-Fetch-Mode: navigate
+2023-10-10 14:10:34.590235 [info]: oop!unknow header: 
+2023-10-10 14:10:34.590238 [info]: Sec-Fetch-User: ?1
+2023-10-10 14:10:34.590242 [info]: oop!unknow header: 
+2023-10-10 14:10:34.590245 [info]: Sec-Fetch-Dest: document
+2023-10-10 14:10:34.590250 [info]: oop!unknow header: 
+2023-10-10 14:10:34.590253 [info]: Accept-Encoding: gzip, deflate, br
+2023-10-10 14:10:34.590257 [info]: oop!unknow header: 
+2023-10-10 14:10:34.590260 [info]: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8
+2023-10-10 14:10:34.590275 [info]: oop!unknow header: 
+2023-10-10 14:10:34.590280 [info]: 
+2023-10-10 14:10:35.026875 [info]: deal with the client(127.0.0.1)
+2023-10-10 14:10:35.026985 [info]: GET /favicon.ico HTTP/1.1
+2023-10-10 14:10:35.027028 [info]: Host: localhost:6521
+2023-10-10 14:10:35.027034 [info]: oop!unknow header: 
+2023-10-10 14:10:35.027037 [info]: Connection: keep-alive
+2023-10-10 14:10:35.027041 [info]: oop!unknow header: 
+2023-10-10 14:10:35.027043 [info]: sec-ch-ua: "Google Chrome";v="117", "Not;A=Brand";v="8", "Chromium";v="117"
+2023-10-10 14:10:35.027057 [info]: oop!unknow header: 
+2023-10-10 14:10:35.027061 [info]: sec-ch-ua-mobile: ?0
+2023-10-10 14:10:35.027074 [info]: oop!unknow header: 
+2023-10-10 14:10:35.027078 [info]: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36
+2023-10-10 14:10:35.027092 [info]: oop!unknow header: 
+2023-10-10 14:10:35.027095 [info]: sec-ch-ua-platform: "Windows"
+2023-10-10 14:10:35.027109 [info]: oop!unknow header: 
+2023-10-10 14:10:35.027113 [info]: Accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+2023-10-10 14:10:35.027126 [info]: oop!unknow header: 
+2023-10-10 14:10:35.027129 [info]: Sec-Fetch-Site: same-origin
+2023-10-10 14:10:35.027143 [info]: oop!unknow header: 
+2023-10-10 14:10:35.027146 [info]: Sec-Fetch-Mode: no-cors
+2023-10-10 14:10:35.027151 [info]: oop!unknow header: 
+2023-10-10 14:10:35.027153 [info]: Sec-Fetch-Dest: image
+2023-10-10 14:10:35.027165 [info]: oop!unknow header: 
+2023-10-10 14:10:35.027169 [info]: Referer: http://localhost:6521/
+2023-10-10 14:10:35.027182 [info]: oop!unknow header: 
+2023-10-10 14:10:35.027185 [info]: Accept-Encoding: gzip, deflate, br
+2023-10-10 14:10:35.027190 [info]: oop!unknow header: 
+2023-10-10 14:10:35.027192 [info]: Accept-Language: zh-CN,zh;q=0.9,en;q=0.8
+2023-10-10 14:10:35.027205 [info]: oop!unknow header: 
+2023-10-10 14:10:35.027208 [info]: 
+2023-10-10 14:10:37.372156 [info]: timer tick

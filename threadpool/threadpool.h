@@ -86,6 +86,7 @@ void *threadpool<T>::worker(void *arg){
 template <typename T>
 void threadpool<T>::run(){
     while(true){
+        // std::cout << 1 << std::endl;
         queuestat_.wait();
         queuelocker_.lock();
 
@@ -93,6 +94,7 @@ void threadpool<T>::run(){
             queuelocker_.unlock();
             continue;
         }
+        // std::cout << 2 << std::endl;
         T *request = workqueue_.front();
         workqueue_.pop_front();
 
@@ -100,6 +102,7 @@ void threadpool<T>::run(){
         if (request == nullptr){
             continue;
         }
+        // std::cout << 3 << std::endl;
 
         connectionRAII mysqlcon(&request->mysql_, connPool_);
         request->process();
