@@ -1,0 +1,45 @@
+2023-10-10 10:45:53.830318 [error]: epoll failure
+2023-10-10 10:46:33.630796 [error]: epoll failure
+2023-10-10 10:53:15.192268 [error]: epoll failure
+2023-10-10 10:54:26.238039 [info]: timer tick
+2023-10-10 10:54:31.238290 [info]: timer tick
+2023-10-10 10:54:36.238408 [info]: timer tick
+2023-10-10 10:54:41.238501 [info]: timer tick
+2023-10-10 10:54:46.238630 [info]: timer tick
+2023-10-10 10:54:51.238708 [info]: timer tick
+2023-10-10 10:54:56.238781 [info]: timer tick
+2023-10-10 10:55:01.238821 [info]: timer tick
+2023-10-10 10:55:06.238932 [info]: timer tick
+2023-10-10 10:55:07.752295 [error]: accept error:errno is:11
+2023-10-10 10:55:07.755681 [info]: deal with the client(127.0.0.1)
+2023-10-10 10:55:07.999083 [error]: accept error:errno is:11
+2023-10-10 10:55:11.238985 [info]: timer tick
+2023-10-10 10:55:16.239084 [info]: timer tick
+2023-10-10 10:55:21.239182 [info]: timer tick
+2023-10-10 10:55:26.239539 [info]: timer tick
+2023-10-10 10:55:31.239589 [info]: timer tick
+2023-10-10 10:55:36.239749 [info]: timer tick
+2023-10-10 10:55:40.616074 [error]: accept error:errno is:11
+2023-10-10 10:55:40.618242 [info]: deal with the client(127.0.0.1)
+2023-10-10 10:55:40.618591 [error]: accept error:errno is:11
+2023-10-10 10:55:40.863312 [error]: accept error:errno is:11
+2023-10-10 10:55:41.239832 [info]: timer tick
+2023-10-10 10:55:46.239892 [info]: timer tick
+2023-10-10 10:55:51.240020 [info]: timer tick
+2023-10-10 10:55:56.240420 [info]: timer tick
+2023-10-10 10:55:58.848519 [error]: accept error:errno is:11
+2023-10-10 10:55:58.848784 [error]: accept error:errno is:11
+2023-10-10 10:55:58.849562 [info]: deal with the client(127.0.0.1)
+2023-10-10 10:55:59.114907 [error]: accept error:errno is:11
+2023-10-10 10:56:01.240663 [info]: timer tick
+2023-10-10 10:56:05.518170 [error]: accept error:errno is:11
+2023-10-10 10:56:05.518868 [error]: accept error:errno is:11
+2023-10-10 10:56:05.519445 [info]: deal with the client(127.0.0.1)
+2023-10-10 10:56:06.240696 [info]: timer tick
+2023-10-10 10:56:11.240753 [info]: timer tick
+2023-10-10 10:56:16.241151 [info]: timer tick
+2023-10-10 10:56:21.241400 [info]: timer tick
+2023-10-10 10:56:26.241449 [info]: timer tick
+2023-10-10 10:56:31.241504 [info]: timer tick
+2023-10-10 10:56:36.241658 [info]: timer tick
+2023-10-10 10:56:41.241772 [info]: timer tick

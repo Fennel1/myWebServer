@@ -1,12 +1,12 @@
 #ifndef THREADPOOL_H
 #define THREADPOOL_H
 
+#include <iostream>
 #include <list>
 #include <exception>
 #include <pthread.h>
 #include "../mysql/mysql_connection_pool.h"
 #include "../lock/locker.h"
-
 
 template <typename T>
 class threadpool{
@@ -32,20 +32,24 @@ template <typename T>
 threadpool<T>::threadpool(connection_pool *connPool, int thread_number, int max_requests) : 
 connPool_(connPool), thread_number_(thread_number), max_requests_(max_requests), pthreads_(nullptr){
     if (thread_number <= 0 || max_requests <= 0){
+        std::cout << "thread_number or max_requests Error" << std::endl;
         throw std::exception();
     }
 
     pthreads_ = new pthread_t[thread_number];
     if (pthreads_ == nullptr){
+        std::cout << "new pthreads_ Error" << std::endl;
         throw std::exception();
     }
 
     for (int i=0; i<thread_number; i++){
         if (pthread_create(pthreads_ + i, nullptr, worker, this) != 0){
+            std::cout << "pthread_create Error" << std::endl;
             delete [] pthreads_;
             throw std::exception();
         }
         if (pthread_detach(pthreads_[i])){
+            std::cout << "pthread_detach Error" << std::endl;
             delete [] pthreads_;
             throw std::exception();
         }

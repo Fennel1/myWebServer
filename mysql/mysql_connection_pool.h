@@ -5,6 +5,7 @@
 #include <list>
 #include <string>
 #include "../lock/locker.h"
+#include "../log/log.h"
 
 class connection_pool{
 public:

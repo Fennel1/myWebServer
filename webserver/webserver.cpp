@@ -76,7 +76,7 @@ void WebServer::sql_pool(){
 }
 
 void WebServer::thread_pool(){
-    pool_ = new threadpool<http_conn>(connPool_, actorModel_, threadNum_);
+    pool_ = new threadpool<http_conn>(connPool_, threadNum_);
 }
 
 void WebServer::eventListen(){
@@ -199,7 +199,7 @@ bool WebServer::dealclientdata(){
 }
 
 bool WebServer::dealwithsignal(bool &timeout, bool &stop_server){
-    int ret = 0, sig;
+    int ret = 0;
     char signals[1024];
     ret = recv(pipefd_[0], signals, sizeof(signals), 0);
     if (ret == -1 || ret == 0){
@@ -211,6 +211,7 @@ bool WebServer::dealwithsignal(bool &timeout, bool &stop_server){
                 timeout = true;
                 break;
             case SIGTERM:
+                std::cout << "SIGTERM" << std::endl;
                 stop_server = true;
                 break;
         }
@@ -293,7 +294,7 @@ void WebServer::eventLoop(){
 
     while (!stop_server){
         int number = epoll_wait(epollfd_, events_, MAX_EVENT_NUMBER, -1);
-        if (number < 0 || errno != EINTR){
+        if (number < 0 && errno != EINTR){
             LOG_ERROR("%s", "epoll failure");
             break;
         }

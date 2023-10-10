@@ -28,13 +28,13 @@ void connection_pool::init(std::string url, std::string user, std::string passwo
 
         con = mysql_init(con);
         if (con == nullptr){
-            // LOG_ERROR("MySQL Error");
+            LOG_ERROR("MySQL Error");
             exit(1);
         }
 
         con = mysql_real_connect(con, url.c_str(), user.c_str(), password.c_str(), database_name.c_str(), port, nullptr, 0);
         if (con == nullptr){
-            // LOG_ERROR("MySQL Error");
+            LOG_ERROR("MySQL Error");
             exit(1);
         }
         conn_list_.push_back(con);
