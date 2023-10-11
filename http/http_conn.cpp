@@ -177,8 +177,7 @@ bool http_conn::read_once(){
             return false;
         }
         read_idx_ += bytes_read;
-        // std::cout << 333 << std::endl;
-        std::cout << read_buf_ << std::endl;
+        // std::cout << read_buf_ << std::endl;
         return true;
     }
 }
@@ -240,7 +239,6 @@ http_conn::HTTP_CODE http_conn::parse_headers(char *text){
             check_state_ = CHECK_STATE_CONTENT;
             return NO_REQUEST;
         }
-        // std::cout << "content_len_ = 0" << std::endl;
         return GET_REQUEST;
     }
     else if (strncasecmp(text, "Connection:", 11) == 0){
@@ -289,25 +287,25 @@ http_conn::HTTP_CODE http_conn::process_read(){
         // LOG_INFO("%s", text);
         switch (check_state_){
             case CHECK_STATE_REQUESTLINE: 
-                std::cout << "CHECK_STATE_REQUESTLINE" << std::endl;
+                // std::cout << "CHECK_STATE_REQUESTLINE" << std::endl;
                 ret = parse_request_line(text);
                 if (ret == BAD_REQUEST){
                     return BAD_REQUEST;
                 }
                 break;
             case CHECK_STATE_HEADER:
-                std::cout << "CHECK_STATE_HEADER" << std::endl;
+                // std::cout << "CHECK_STATE_HEADER" << std::endl;
                 ret = parse_headers(text);
                 if (ret == BAD_REQUEST){
                     return BAD_REQUEST;
                 }
                 else if (ret == GET_REQUEST){
-                    std::cout << "GET_REQUEST" << std::endl;
+                    // std::cout << "GET_REQUEST" << std::endl;
                     return do_request();
                 }
                 break;
             case CHECK_STATE_CONTENT:
-                std::cout << "CHECK_STATE_CONTENT" << std::endl;
+                // std::cout << "CHECK_STATE_CONTENT" << std::endl;
                 ret = parse_content(text);
                 if (ret == GET_REQUEST){
                     // std::cout << "GET_REQUEST" << std::endl;
@@ -329,7 +327,7 @@ http_conn::HTTP_CODE http_conn::do_request(){
     const char *p = strrchr(url_, '/');
 
     //处理cgi
-    std::cout << cgi_ << " " << *(p+1) << std::endl;
+    // std::cout << cgi_ << " " << *(p+1) << std::endl;
     if (cgi_ == 1 && (*(p+1) == '2' || *(p+1) == '3')){
         // std::cout << url_ << std::endl;
         char flag = url_[1];
@@ -339,7 +337,7 @@ http_conn::HTTP_CODE http_conn::do_request(){
         strncpy(real_file_+len, url_real, FILENAME_LEN-len+1);
         free(url_real);
 
-        std::cout << string_ << std::endl;
+        // std::cout << string_ << std::endl;
         //将用户名和密码提取出来
         char name[100], password[100];
         int i, j;
@@ -352,7 +350,7 @@ http_conn::HTTP_CODE http_conn::do_request(){
         }
         password[j] = '\0';
 
-        std::cout << name << " " << password << std::endl;
+        // std::cout << name << " " << password << std::endl;
 
         if (*(p+1) == '3'){
             //如果是注册，先检测数据库中是否有重名的
@@ -385,8 +383,6 @@ http_conn::HTTP_CODE http_conn::do_request(){
         else{
             //如果是登录，直接判断
             //若浏览器端输入的用户名和密码在表中可以查找到，返回1，否则返回0
-            std::cout << http_conn::users_.size() << " " << http_conn::users_["123"] << std::endl;
-            std::cout << http_conn::users_[name] << std::endl;
             if (http_conn::users_.find(name) != http_conn::users_.end() && http_conn::users_[name] == password){
                 strcpy(url_, "/welcome.html");
             }
@@ -424,7 +420,7 @@ http_conn::HTTP_CODE http_conn::do_request(){
         strncpy(real_file_+len, url_, FILENAME_LEN-len-1);
     }
 
-    std::cout << real_file_ << std::endl;
+    // std::cout << real_file_ << std::endl;
     if (stat(real_file_, &file_stat_) < 0){
         return NO_REQUEST;
     }
@@ -573,8 +569,8 @@ bool http_conn::process_write(HTTP_CODE ret){
                 iv_[1].iov_len = file_stat_.st_size;
                 iv_count_ = 2;
                 bytes_to_send_ = write_idx_ + file_stat_.st_size;
-                std::cout << write_buf_ << std::endl;
-                std::cout << file_address_ << std::endl;
+                // std::cout << write_buf_ << std::endl;
+                // std::cout << file_address_ << std::endl;
                 return true;
             }
             else{
@@ -599,15 +595,12 @@ void http_conn::process(){
     HTTP_CODE read_ret = process_read();
     if (read_ret == NO_REQUEST){
         modfd(epollfd_, socketfd_, EPOLLIN, et_);
-        // std::cout << 111 << std::endl;
         return;
     }
-    // std::cout << 222 << std::endl;
     bool write_ret = process_write(read_ret);
     if (!write_ret){
         close_conn();
     }
-    // std::cout << 333 << std::endl;
     modfd(epollfd_, socketfd_, EPOLLOUT, et_);
 }
 
@@ -626,7 +619,6 @@ void http_conn::initmysql_result(connection_pool *connpool){
 
     //返回结果集中的列数
     int num_fields = mysql_num_fields(result);
-    // std::cout << num_fields << std::endl;
 
     //返回所有字段结构的数组
     MYSQL_FIELD *fields = mysql_fetch_fields(result);
@@ -637,7 +629,5 @@ void http_conn::initmysql_result(connection_pool *connpool){
         std::string temp1(row[0]);
         std::string temp2(row[1]);
         http_conn::users_[temp1] = temp2;
-        // std::cout << temp1 << " " << temp2 << std::endl;
     }
-    std::cout << http_conn::users_.size() << " " << http_conn::users_["123"] << std::endl;
 }

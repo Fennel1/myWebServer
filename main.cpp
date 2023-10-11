@@ -16,20 +16,20 @@ int main(int argc, char *argv[]){
                 config.linger_, config.et_,  config.sqlNum_,  config.threadNum_, 
                 config.closeLog_, config.actorModel_);
 
-    std::cout << "WebServer init success" << std::endl;
+    // std::cout << "WebServer init success" << std::endl;
     
     server.log_write();
-    std::cout << "WebServer log_write success" << std::endl;
+    // std::cout << "WebServer log_write success" << std::endl;
     server.sql_pool();
-    std::cout << "WebServer sql_pool success" << std::endl;
+    // std::cout << "WebServer sql_pool success" << std::endl;
     server.thread_pool();
-    std::cout << "WebServer thread_pool success" << std::endl;
+    // std::cout << "WebServer thread_pool success" << std::endl;
     server.et();
-    std::cout << "WebServer et success" << std::endl;
+    // std::cout << "WebServer et success" << std::endl;
     server.eventListen();
-    std::cout << "WebServer eventListen success" << std::endl;
+    // std::cout << "WebServer eventListen success" << std::endl;
     server.eventLoop();
-    std::cout << "WebServer eventLoop success" << std::endl;
+    // std::cout << "WebServer eventLoop success" << std::endl;
 
     return 0;
 }

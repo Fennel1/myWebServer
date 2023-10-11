@@ -12,6 +12,8 @@
 #include <netinet/in.h>
 #include <sys/socket.h>
 
+#include "../http/http_conn.h"
+
 class util_timer;
 
 struct client_data{

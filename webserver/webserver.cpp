@@ -323,7 +323,7 @@ void WebServer::eventLoop(){
             }
         }
 
-        if (timeout){
+        if (timeout){ 
             utils_.timer_handler();
             LOG_INFO("%s", "timer tick");
             timeout = false;

@@ -50,14 +50,14 @@ private:
     int close_log_;     //关闭日志
 };
 
-// #define LOG_DEBUG(format, ...) if(0 == close_log_) {log::get_instance()->write_log(0, format, ##__VA_ARGS__); log::get_instance()->flush();}
-// #define LOG_INFO(format, ...) if(0 == close_log_) {log::get_instance()->write_log(1, format, ##__VA_ARGS__); log::get_instance()->flush();}
-// #define LOG_WARN(format, ...) if(0 == close_log_) {log::get_instance()->write_log(2, format, ##__VA_ARGS__); log::get_instance()->flush();}
-// #define LOG_ERROR(format, ...) if(0 == close_log_) {log::get_instance()->write_log(3, format, ##__VA_ARGS__); log::get_instance()->flush();}
+#define LOG_DEBUG(format, ...) if(0 == close_log_) {log::get_instance()->write_log(0, format, ##__VA_ARGS__); log::get_instance()->flush();}
+#define LOG_INFO(format, ...) if(0 == close_log_) {log::get_instance()->write_log(1, format, ##__VA_ARGS__); log::get_instance()->flush();}
+#define LOG_WARN(format, ...) if(0 == close_log_) {log::get_instance()->write_log(2, format, ##__VA_ARGS__); log::get_instance()->flush();}
+#define LOG_ERROR(format, ...) if(0 == close_log_) {log::get_instance()->write_log(3, format, ##__VA_ARGS__); log::get_instance()->flush();}
 
-#define LOG_DEBUG(format, ...)  {log::get_instance()->write_log(0, format, ##__VA_ARGS__); log::get_instance()->flush();}
-#define LOG_INFO(format, ...)  {log::get_instance()->write_log(1, format, ##__VA_ARGS__); log::get_instance()->flush();}
-#define LOG_WARN(format, ...)  {log::get_instance()->write_log(2, format, ##__VA_ARGS__); log::get_instance()->flush();}
-#define LOG_ERROR(format, ...)  {log::get_instance()->write_log(3, format, ##__VA_ARGS__); log::get_instance()->flush();}
+// #define LOG_DEBUG(format, ...)  {log::get_instance()->write_log(0, format, ##__VA_ARGS__); log::get_instance()->flush();}
+// #define LOG_INFO(format, ...)  {log::get_instance()->write_log(1, format, ##__VA_ARGS__); log::get_instance()->flush();}
+// #define LOG_WARN(format, ...)  {log::get_instance()->write_log(2, format, ##__VA_ARGS__); log::get_instance()->flush();}
+// #define LOG_ERROR(format, ...)  {log::get_instance()->write_log(3, format, ##__VA_ARGS__); log::get_instance()->flush();}
 
 #endif
