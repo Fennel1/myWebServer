@@ -1,3 +1,2 @@
 .vscode/
-./server
-./*_ServerLog
+*.txt

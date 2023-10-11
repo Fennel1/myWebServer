@@ -10,6 +10,8 @@ const char *error_404_form = "The requested file was not found on this server.\n
 const char *error_500_title = "Internal Error";
 const char *error_500_form = "There was an unusual problem serving the request file.\n";
 
+std::map<std::string, std::string> http_conn::users_;
+
 //对文件描述符设置非阻塞
 int setnonblocking(int fd){
     int old_option = fcntl(fd, F_GETFL);
@@ -116,16 +118,13 @@ void http_conn::close_conn(bool real_close){
 //从状态机，用于分析出一行内容
 http_conn::LINE_STATUS http_conn::parse_line(){
     char tmp;
-    std::cout << checked_idx_ << " " << read_idx_ << std::endl;
     for (; checked_idx_<read_idx_; checked_idx_++){
         tmp = read_buf_[checked_idx_];
-        // std::cout << tmp << std::endl;
         if (tmp == '\r'){
             if (checked_idx_+1 == read_idx_){
                 return LINE_OPEN;
             }
             else if (read_buf_[checked_idx_+1] == '\n'){
-                std::cout << 1111111 << " " << checked_idx_ << std::endl;
                 read_buf_[checked_idx_++] = '\0';
                 read_buf_[checked_idx_++] = '\0';
                 return LINE_OK;
@@ -136,7 +135,6 @@ http_conn::LINE_STATUS http_conn::parse_line(){
         }
         else if (tmp == '\n'){
             if (checked_idx_ > 1 && read_buf_[checked_idx_-1] == '\r'){
-                std::cout << 2222222 << std::endl;
                 read_buf_[checked_idx_-1] = '\0';
                 read_buf_[checked_idx_++] = '\0';
                 return LINE_OK;
@@ -146,7 +144,6 @@ http_conn::LINE_STATUS http_conn::parse_line(){
             }
         }
     }
-    std::cout << 222 << std::endl;
     return LINE_OPEN;
 }
 
@@ -286,14 +283,10 @@ http_conn::HTTP_CODE http_conn::process_read(){
     HTTP_CODE ret = NO_REQUEST;
     char *text = 0;
     while((check_state_ == CHECK_STATE_CONTENT && line_status == LINE_OK) || ((line_status = parse_line()) == LINE_OK)){
-        std::cout << start_line_ << " " << checked_idx_ << std::endl;
+        // std::cout << start_line_ << " " << checked_idx_ << std::endl;
         text = get_line();
         start_line_ = checked_idx_;
         // LOG_INFO("%s", text);
-        std::cout << text << std::endl;
-        std::cout << strlen(text) << std::endl;
-        if (text[0] == '\0')    std::cout << "text[0] = '\\0'" << std::endl;
-        else if (text[1] == '\0')   std::cout << "text[1] = '\\0'" << std::endl;
         switch (check_state_){
             case CHECK_STATE_REQUESTLINE: 
                 std::cout << "CHECK_STATE_REQUESTLINE" << std::endl;
@@ -326,7 +319,7 @@ http_conn::HTTP_CODE http_conn::process_read(){
                 return INTERNAL_ERROR;
         }
     }
-    std::cout << line_status << std::endl;
+    // std::cout << line_status << std::endl;
     return NO_REQUEST;
 }
 
@@ -336,10 +329,9 @@ http_conn::HTTP_CODE http_conn::do_request(){
     const char *p = strrchr(url_, '/');
 
     //处理cgi
-    // std::cout << "cgi_ = " << cgi_ << std::endl;
     std::cout << cgi_ << " " << *(p+1) << std::endl;
     if (cgi_ == 1 && (*(p+1) == '2' || *(p+1) == '3')){
-        std::cout << url_ << std::endl;
+        // std::cout << url_ << std::endl;
         char flag = url_[1];
         char *url_real = (char *)malloc(sizeof(char)*200);
         strcpy(url_real, "/");
@@ -358,9 +350,9 @@ http_conn::HTTP_CODE http_conn::do_request(){
         for (i=i+10, j=0; string_[i]!='\0'; i++, j++){
             password[j] = string_[i];
         }
-        name[j] = '\0';
+        password[j] = '\0';
 
-        std::cout << "name: " << name << " password: " << password << std::endl;
+        std::cout << name << " " << password << std::endl;
 
         if (*(p+1) == '3'){
             //如果是注册，先检测数据库中是否有重名的
@@ -373,10 +365,10 @@ http_conn::HTTP_CODE http_conn::do_request(){
             strcat(sql_insert, password);
             strcat(sql_insert, "')");
 
-            if (users_.find(name) == users_.end()){
+            if (http_conn::users_.find(name) == http_conn::users_.end()){
                 lock_.lock();
                 int res = mysql_query(mysql_, sql_insert);
-                users_.insert(std::pair<std::string, std::string>(name, password));
+                http_conn::users_.insert(std::pair<std::string, std::string>(name, password));
                 lock_.unlock();
 
                 if (!res) {
@@ -393,7 +385,9 @@ http_conn::HTTP_CODE http_conn::do_request(){
         else{
             //如果是登录，直接判断
             //若浏览器端输入的用户名和密码在表中可以查找到，返回1，否则返回0
-            if (users_.find(name) != users_.end() && users_[name] == password){
+            std::cout << http_conn::users_.size() << " " << http_conn::users_["123"] << std::endl;
+            std::cout << http_conn::users_[name] << std::endl;
+            if (http_conn::users_.find(name) != http_conn::users_.end() && http_conn::users_[name] == password){
                 strcpy(url_, "/welcome.html");
             }
             else{
@@ -624,7 +618,7 @@ void http_conn::initmysql_result(connection_pool *connpool){
     
     //在user表中检索username，passwd数据，浏览器端输入
     if (mysql_query(mysql, "SELECT username,passwd FROM user")){
-        // LOG_ERROR("SELECT error:%s\n", mysql_error(mysql));
+        LOG_ERROR("SELECT error:%s\n", mysql_error(mysql));
     }
 
     //从表中检索完整的结果集
@@ -632,6 +626,7 @@ void http_conn::initmysql_result(connection_pool *connpool){
 
     //返回结果集中的列数
     int num_fields = mysql_num_fields(result);
+    // std::cout << num_fields << std::endl;
 
     //返回所有字段结构的数组
     MYSQL_FIELD *fields = mysql_fetch_fields(result);
@@ -641,6 +636,8 @@ void http_conn::initmysql_result(connection_pool *connpool){
     {
         std::string temp1(row[0]);
         std::string temp2(row[1]);
-        users_[temp1] = temp2;
+        http_conn::users_[temp1] = temp2;
+        // std::cout << temp1 << " " << temp2 << std::endl;
     }
+    std::cout << http_conn::users_.size() << " " << http_conn::users_["123"] << std::endl;
 }

@@ -116,7 +116,7 @@ private:
     int bytes_to_send_;
     int bytes_have_send_;
     char *doc_root;
-    std::map<std::string, std::string> users_;
+    static std::map<std::string, std::string> users_;
     int et_;
     int close_log_;
     char sql_user_[100];

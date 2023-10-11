@@ -76,7 +76,7 @@ void WebServer::sql_pool(){
 }
 
 void WebServer::thread_pool(){
-    pool_ = new threadpool<http_conn>(connPool_, threadNum_);
+    pool_ = new threadpool<http_conn>(connPool_, actorModel_, threadNum_);
 }
 
 void WebServer::eventListen(){
@@ -221,12 +221,11 @@ bool WebServer::dealwithsignal(bool &timeout, bool &stop_server){
 void WebServer::dealwithread(int socketfd){
     util_timer *timer = users_timer_[socketfd].timer;
 
-    if (actorModel_ == 1){
-        // reactor
+    if (actorModel_ == 1){   // reactor
         if (timer){
             adjust_timer(timer);
         }
-        pool_->append(users_+socketfd);
+        pool_->append(users_+socketfd, 0);
         while(true){
             if (users_[socketfd].improv_ == 1){
                 if (users_[socketfd].timer_flag_ == 1){
@@ -238,11 +237,10 @@ void WebServer::dealwithread(int socketfd){
             }
         }
     }
-    else{
-        // proactor
+    else{   // proactor
         if (users_[socketfd].read_once()){
             LOG_INFO("deal with the client(%s)", inet_ntoa(users_[socketfd].get_address()->sin_addr));
-            pool_->append(users_+socketfd);
+            pool_->append(users_+socketfd, 0);
             if (timer){
                 adjust_timer(timer);
             }
@@ -261,7 +259,7 @@ void WebServer::dealwithwrite(int socketfd){
         if (timer){
             adjust_timer(timer);
         }
-        pool_->append(users_+socketfd);
+        pool_->append(users_+socketfd, 1);
         while(true){
             if (users_[socketfd].improv_ == 1){
                 if (users_[socketfd].timer_flag_ == 1){
@@ -300,34 +298,27 @@ void WebServer::eventLoop(){
 
         for (int i=0; i<number; i++){
             int socketfd = events_[i].data.fd;
-            std::cout << socketfd;
 
-            if (socketfd == listenfd_){
-                std::cout << " listen" << std::endl;
-                //处理新到的客户连接
+            if (socketfd == listenfd_){ //处理新到的客户连接
                 bool flag = dealclientdata();
                 if (!flag){
                     continue;
                 }
             }
-            else if (events_[i].events & (EPOLLRDHUP | EPOLLHUP | EPOLLERR)){
-                //服务器端关闭连接，移除对应的定时器
+            else if (events_[i].events & (EPOLLRDHUP | EPOLLHUP | EPOLLERR)){   //服务器端关闭连接，移除对应的定时器
                 util_timer *timer = users_timer_[socketfd].timer;
                 del_timer(timer, socketfd);
             }
-            else if (socketfd == pipefd_[0] && events_[i].events & EPOLLIN){
-                //处理信号
+            else if (socketfd == pipefd_[0] && events_[i].events & EPOLLIN){    //处理信号
                 bool flag = dealwithsignal(timeout, stop_server);
                 if (!flag){
                     LOG_ERROR("%s", "dealclientdata failure");
                 }
             }
             else if (events_[i].events & EPOLLIN){
-                std::cout << " read" << std::endl;
                 dealwithread(socketfd);
             }
             else if (events_[i].events & EPOLLOUT){
-                std::cout << " write" << std::endl;
                 dealwithwrite(socketfd);
             }
         }

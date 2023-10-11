@@ -11,9 +11,9 @@
 template <typename T>
 class threadpool{
 public:
-    threadpool(connection_pool *connPool, int thread_number = 8, int max_requests = 10000);
+    threadpool(connection_pool *connPool, int actorModel, int thread_number = 8, int max_requests = 10000);
     ~threadpool();
-    bool append(T *request);
+    bool append(T *request, int state);
 
 private:
     static void *worker(void *arg);
@@ -26,30 +26,27 @@ private:
     locker queuelocker_;
     sem queuestat_;
     connection_pool *connPool_;
+    int actorModel_;
 };
 
 template <typename T>
-threadpool<T>::threadpool(connection_pool *connPool, int thread_number, int max_requests) : 
-connPool_(connPool), thread_number_(thread_number), max_requests_(max_requests), pthreads_(nullptr){
+threadpool<T>::threadpool(connection_pool *connPool, int actorModel, int thread_number, int max_requests) : 
+connPool_(connPool), actorModel_(actorModel), thread_number_(thread_number), max_requests_(max_requests), pthreads_(nullptr){
     if (thread_number <= 0 || max_requests <= 0){
-        std::cout << "thread_number or max_requests Error" << std::endl;
         throw std::exception();
     }
 
     pthreads_ = new pthread_t[thread_number];
     if (pthreads_ == nullptr){
-        std::cout << "new pthreads_ Error" << std::endl;
         throw std::exception();
     }
 
     for (int i=0; i<thread_number; i++){
         if (pthread_create(pthreads_ + i, nullptr, worker, this) != 0){
-            std::cout << "pthread_create Error" << std::endl;
             delete [] pthreads_;
             throw std::exception();
         }
         if (pthread_detach(pthreads_[i])){
-            std::cout << "pthread_detach Error" << std::endl;
             delete [] pthreads_;
             throw std::exception();
         }
@@ -62,7 +59,7 @@ threadpool<T>::~threadpool(){
 }
 
 template <typename T>
-bool threadpool<T>::append(T *request){
+bool threadpool<T>::append(T *request, int state){
     queuelocker_.lock();
 
     if (workqueue_.size() >= max_requests_){
@@ -70,6 +67,7 @@ bool threadpool<T>::append(T *request){
         return false;
     }
 
+    request->state_ = state;
     workqueue_.push_back(request);
     queuelocker_.unlock();
     queuestat_.post();
@@ -86,7 +84,6 @@ void *threadpool<T>::worker(void *arg){
 template <typename T>
 void threadpool<T>::run(){
     while(true){
-        // std::cout << 1 << std::endl;
         queuestat_.wait();
         queuelocker_.lock();
 
@@ -94,7 +91,6 @@ void threadpool<T>::run(){
             queuelocker_.unlock();
             continue;
         }
-        // std::cout << 2 << std::endl;
         T *request = workqueue_.front();
         workqueue_.pop_front();
 
@@ -102,10 +98,33 @@ void threadpool<T>::run(){
         if (request == nullptr){
             continue;
         }
-        // std::cout << 3 << std::endl;
 
-        connectionRAII mysqlcon(&request->mysql_, connPool_);
-        request->process();
+        if (actorModel_ == 1){  // reactor
+            if (request->state_ == 0){  // read
+                if (request->read_once()){
+                    request->improv_ = 1;
+                    connectionRAII mysqlcon(&request->mysql_, connPool_);
+                    request->process();
+                }
+                else{
+                    request->improv_ = 1;
+                    request->timer_flag_ = 1;
+                }
+            }
+            else{   // write
+                if (request->write()){
+                    request->improv_ = 1;
+                }
+                else{
+                    request->improv_ = 1;
+                    request->timer_flag_ = 1;
+                }
+            }
+        }
+        else{   // proactor
+            connectionRAII mysqlcon(&request->mysql_, connPool_);
+            request->process();
+        }
     }
 }
 
