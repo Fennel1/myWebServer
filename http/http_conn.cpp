@@ -81,6 +81,7 @@ void http_conn::init(){
     state_ = 0;
     timer_flag_ = 0;
     improv_ = 0;
+    has_cookie_ = false;
 
     memset(read_buf_, '\0', READ_BUFFER_SIZE);
     memset(write_buf_, '\0', WRITE_BUFFER_SIZE);
@@ -234,6 +235,7 @@ http_conn::HTTP_CODE http_conn::parse_request_line(char *text){
 
 //解析http请求的一个头部信息
 http_conn::HTTP_CODE http_conn::parse_headers(char *text){
+    has_cookie_ = false;
     if (text[0] == '\0'){
         if (content_len_ != 0){
             check_state_ = CHECK_STATE_CONTENT;
@@ -253,11 +255,20 @@ http_conn::HTTP_CODE http_conn::parse_headers(char *text){
         text += strspn(text, " \t");
         content_len_ = atol(text);
     }
-    else if (strncasecmp(text, "Host:", 5) == 0)
-    {
+    else if (strncasecmp(text, "Host:", 5) == 0){
         text += 5;
         text += strspn(text, " \t");
         host_ = text;
+    }
+    else if (strncasecmp(text, "Cookie:", 7) == 0)
+    {
+        text += 7;
+        text += strspn(text, " \t");
+        text += 7;
+        cookie_ = text;
+        has_cookie_ = true;
+        std::cout << "cookie: " << cookie_ << std::endl;
+        return GET_REQUEST;
     }
     else {
         LOG_INFO("oop!unknow header: %s", text);
@@ -326,6 +337,36 @@ http_conn::HTTP_CODE http_conn::do_request(){
     int len = strlen(doc_root);
     const char *p = strrchr(url_, '/');
 
+    if (has_cookie_){
+        bool flag = false;
+        for (auto iter = users_.begin(); iter != users_.end(); iter++){
+            if (strcmp(md5_.digestString((char *)iter->first.c_str()), cookie_) == 0){
+                flag = true;
+                break;
+            }
+        }
+        if (flag){
+            strcpy(url_, "/welcome.html");
+            strncpy(real_file_+len, url_, FILENAME_LEN-len-1);
+            if (stat(real_file_, &file_stat_) < 0){
+                return NO_REQUEST;
+            }
+            if (!(file_stat_.st_mode & S_IROTH)){
+                return FORBIDDEN_REQUEST;
+            }
+            if (S_ISDIR(file_stat_.st_mode)){
+                return BAD_REQUEST;
+            }
+
+            int fd = open(real_file_, O_RDONLY);
+            file_address_ = (char *)mmap(0, file_stat_.st_size, PROT_READ, MAP_PRIVATE, fd, 0);
+            close(fd);
+            return FILE_REQUEST;
+        }
+    }
+
+    is_login_ = false;
+
     //处理cgi
     // std::cout << cgi_ << " " << *(p+1) << std::endl;
     if (cgi_ == 1 && (*(p+1) == '2' || *(p+1) == '3')){
@@ -384,6 +425,8 @@ http_conn::HTTP_CODE http_conn::do_request(){
             //如果是登录，直接判断
             //若浏览器端输入的用户名和密码在表中可以查找到，返回1，否则返回0
             if (http_conn::users_.find(name) != http_conn::users_.end() && http_conn::users_[name] == password){
+                strcpy(name_, name);
+                is_login_ = true;
                 strcpy(url_, "/welcome.html");
             }
             else{
@@ -513,7 +556,7 @@ bool http_conn::add_status_line(int status, const char *title){
 }
 
 bool http_conn::add_headers(int content_len){
-    return add_content_len(content_len) && add_linger() && add_blank_line();
+    return add_content_len(content_len) && add_linger() && add_blank_line();  
 }
 
 bool http_conn::add_content_len(int content_len){
@@ -534,6 +577,10 @@ bool http_conn::add_blank_line(){
 
 bool http_conn::add_content(const char *content){
     return add_response("%s", content);
+}
+
+bool http_conn::add_cookie(char *content){
+    return add_response("Set-Cookie:\"name=\"%s\r\n", md5_.digestString(content));
 }
 
 bool http_conn::process_write(HTTP_CODE ret){
@@ -562,6 +609,9 @@ bool http_conn::process_write(HTTP_CODE ret){
         case FILE_REQUEST:
             add_status_line(200, ok_200_title);
             if (file_stat_.st_size != 0){
+                if (is_login_){
+                    add_cookie(name_);
+                }
                 add_headers(file_stat_.st_size);
                 iv_[0].iov_base = write_buf_;
                 iv_[0].iov_len = write_idx_;

@@ -10,10 +10,12 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 
+
 #include "../lock/locker.h"
 #include "../mysql/mysql_connection_pool.h"
 #include "../timer/lst_timer.h"
 #include "../log/log.h"
+#include "./md5.h"
 
 class http_conn{
 public:
@@ -90,6 +92,7 @@ private:
     bool add_content_len(int content_len);
     bool add_linger();
     bool add_blank_line();
+    bool add_cookie(char *content);
 
     int socketfd_;
     sockaddr_in address_;
@@ -122,6 +125,12 @@ private:
     char sql_user_[100];
     char sql_passwd_[100];
     char sql_name_[100];
+
+    char name_[100];
+    bool is_login_;
+    bool has_cookie_;
+    char *cookie_;
+    md5::MD5 md5_;
 };
 
 #endif
